@@ -25,6 +25,9 @@ const playerScreenStack = createStackNavigator({
         headerLeft: <TouchableHighlight style={{ marginLeft: 20}}  onPress={() => BackHandler.exitApp()}>
           <Image style={{width: 20, height: 20 }} source={require('./assets/images/cancel.png')} />
         </TouchableHighlight>,
+        headerRight: <TouchableHighlight style={{ marginRight: 20}}  onPress={() => BackHandler.exitApp()}>
+        <Image style={{width: 20, height: 20 }} source={require('./assets/images/search.png')} />
+      </TouchableHighlight>,
         headerStyle: {
 
           backgroundColor: '#3D4246'
