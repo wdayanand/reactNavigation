@@ -15,25 +15,13 @@ import Splash from './Screens/Splash';
 import { Icon } from 'react-native-elements'
 import { TouchableHighlight,Image, BackHandler } from 'react-native'
 
-
+console.disableYellowBox = true;
 
 const playerScreenStack = createStackNavigator({
   PlayerScreen: {
     screen: Screen1, navigationOptions: ({ navigation, goBack }) =>
       ({
-        title: 'Podsource',
-        headerLeft: <TouchableHighlight style={{ marginLeft: 20}}  onPress={() => BackHandler.exitApp()}>
-          <Image style={{width: 20, height: 20 }} source={require('./assets/images/cancel.png')} />
-        </TouchableHighlight>,
-        headerRight: <TouchableHighlight style={{ marginRight: 20}}  onPress={() => BackHandler.exitApp()}>
-        <Image style={{width: 20, height: 20 }} source={require('./assets/images/search.png')} />
-      </TouchableHighlight>,
-        headerStyle: {
-
-          backgroundColor: '#3D4246'
-
-        },
-        headerTintColor: '#fff',
+        header:null
       }),
   }
 });

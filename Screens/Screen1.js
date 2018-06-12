@@ -11,13 +11,13 @@ import {
   Text,
   View
 } from 'react-native';
-import { Slider, Image, Button } from 'react-native'
-
+import { BackHandler, Slider, Image, Button ,Alert} from 'react-native'
+import { Toolbar } from 'react-native-material-ui';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    
+
 
     var Dimensions = require('Dimensions');
     var {
@@ -25,7 +25,7 @@ export default class App extends Component {
       height
     } = Dimensions.get('window');
 
-    this.state = { value: 0, minval: 0, maxval: 100,screenWidth:width,screenHeight:height };
+    this.state = { titleBarHiddneStatus: false, value: 0, minval: 0, maxval: 100, screenWidth: width, screenHeight: height };
   }
 
   onClick() {
@@ -33,11 +33,62 @@ export default class App extends Component {
     navigate('Screen2', { screen: 'screen2' })
 
   }
+  appClose() {
+    BackHandler.exitApp()
+
+
+  }
+
+
+  /**
+          * Called when search text was changed.
+          */
+  onChangeText(input) {
+    
+  }
+  /**
+  * Called when search was closed.
+  */
+  onSearchClosed() {
+
+  }
+  /**
+  * Called when action to close search was requested.
+  */
+  onSearchCloseRequested() {
+
+  }
+  /**
+  * Called when search was opened.
+  */
+  onSearchPressed() {
+
+  }
+  /**
+  * Called when user press submit button on hw keyboard
+  */
+  onSubmitEditing() {
+    Alert.alert('text=')
+  }
+
+
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'stretch', padding: 10, backgroundColor: 'black' }}>
+      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: 'black' }}>
 
-        <Text style={{ color: 'white', alignSelf: 'center' }}>{this.state.value} min remaining</Text>
+        <Toolbar
+          leftElement="close"
+          centerElement="Podsource"
+          
+          onLeftElementPress={() => this.appClose()}
+          searchable={{
+            onSubmitEditing:() => this.onSubmitEditing(),
+            onChangeText:(input) => this.onChangeText(input),
+            autoFocus: true,
+            placeholder: 'Search',
+          }}
+        />
+        <Text style={{ color: 'white', marginTop: 10, alignSelf: 'center' }}>{this.state.value} min remaining</Text>
 
         <View style={{
           flexDirection: 'row',
@@ -69,7 +120,7 @@ export default class App extends Component {
           alignItems: 'center',
         }}>
           <Image style={{ width: 250, height: 250, alignSelf: 'center' }} source={require('../assets/images/mdisk.png')} />
-          <View style={{ width:this.state.screenWidth-200, margin: 20, padding: 5, backgroundColor: '#5E486B' }}>
+          <View style={{ width: this.state.screenWidth - 200, margin: 20, padding: 5, backgroundColor: '#5E486B' }}>
             <Text style={{ margin: 1, color: 'white', alignSelf: 'center' }}>Show title</Text>
             <Text style={{ margin: 1, color: 'white', alignSelf: 'center' }}>Episode title</Text>
           </View>
