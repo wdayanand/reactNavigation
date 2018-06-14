@@ -30,6 +30,9 @@ export default class App extends Component {
   _onPress = () => {
 
   };
+  _onButtonClick = () => {
+
+  };
   renderSeparator = () => (
     <View
       style={{
@@ -56,7 +59,7 @@ export default class App extends Component {
 
           <View style={{ marginLeft: 15 }}>
 
-            <Text style={{ color: "white",fontWeight: 'bold',fontSize: 15, }}>
+            <Text style={{ color: "white", fontWeight: 'bold', fontSize: 15, }}>
               {item.title}
             </Text>
             <Text style={{ color: "#929ADD" }}>
@@ -72,6 +75,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+
+        <Text style={{ marginBottom: 60, fontWeight: 'bold', fontSize: 45, color: "white", alignSelf: 'center' }}>
+          Podsource
+            </Text>
         <View style={{
           height: 215,
           backgroundColor: '#2D2B66', overflow: 'hidden',
@@ -97,7 +104,30 @@ export default class App extends Component {
         <View style={{
           alignItems: 'center'
         }}>
-          <Button style={{}} title='Stumble-a-pad'></Button>
+
+
+          <TouchableOpacity style={{}} onPress={this._onButtonClick}>
+            <View style={{ flexDirection: 'column', alignSelf: 'stretch' }}>
+
+              <View
+                style={{
+                  backgroundColor: '#3D3890',
+                  height: 1,
+                }}
+              />
+              <Text style={{ margin: 15, color: 'white' }}>Stumble-a-pad</Text>
+              <View
+                style={{
+                  backgroundColor: '#3D3890',
+                  height: 1,
+                }}
+              />
+            </View>
+
+          </TouchableOpacity>
+
+
+
         </View>
       </View>
     );
