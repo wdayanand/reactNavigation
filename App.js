@@ -31,22 +31,22 @@ const App = createBottomTabNavigator({
   Screen1: {
     screen: playerScreenStack, navigationOptions: {
       title: 'Options',
-      tabBarIcon: () => <Icon
-        name='more-horiz' />
+      tabBarIcon: ({tintColor}) => <Icon
+        name='more-horiz'  color={tintColor}  />
     }
   },
   Screen2: {
     screen: Screen2, navigationOptions: {
       title: 'Collection',
-      tabBarIcon: () => <Icon
-        name='collections' />
+      tabBarIcon: ({tintColor}) => <Icon
+        name='collections'  color={tintColor} />
     }
   },
   Screen3: {
     screen: Screen3, navigationOptions: {
       title: 'Bookmark',
-      tabBarIcon: () => <Icon
-        name='bookmark' />
+      tabBarIcon: ({tintColor}) => <Icon
+        name='bookmark'  color={tintColor}  />
     }
   }
 }, {
