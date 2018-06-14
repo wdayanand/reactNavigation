@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Button,
+  Image,
   TouchableOpacity,
   Text,
   FlatList,
@@ -19,7 +20,7 @@ import {
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [{ title: 'a', subItem: [{ id: '1', name: 'sub1' },{ id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] },{ title: 'a', subItem: [{ id: '1', name: 'sub1' },{ id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] }] }
+    this.state = { data: [{ title: 'Learning', subItem: [{ id: '1', name: 'Business' }, { id: '2', name: 'History' }] }, { title: 'Entertainment', subItem: [{ id: '1', name: 'Narrative' }] }, { title: 'Bollywood', subItem: [{ id: '1', name: 'sub1' }, { id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] }] }
   }
   onClick() {
     const { navigate } = this.props.navigation
@@ -27,45 +28,69 @@ export default class App extends Component {
 
   }
   _onPress = () => {
-    
+
   };
+  renderSeparator = () => (
+    <View
+      style={{
+        backgroundColor: '#3D3890',
+        height: 0.5,
+      }}
+    />
+  );
   renderListItem(item) {
     var fLen = item.subItem.length;
     var sybItems = item.subItem;
-    var subItemStr='';
+    var subItemStr = '';
     for (i = 0; i < fLen; i++) {
-      subItemStr += ','+sybItems[i].name;
+      if (i == 0)
+        subItemStr += sybItems[i].name;
+      else
+        subItemStr += ',' + sybItems[i].name;
     }
     return (
-      <TouchableOpacity style={{alignSelf:'stretch',flex:1}} onPress={this._onPress}>
-        <View style={{alignSelf:'stretch',flex:1,alignSelf:'stretch',alignItems:'flex-start', padding: 20 }}>
-          <Text style={{ color: "white" }}>
-            {item.title}
-          </Text>
-          <Text style={{ color: "white" }}>
-            {subItemStr}
-          </Text>
+      <TouchableOpacity style={{ alignSelf: 'stretch', flex: 1 }} onPress={this._onPress}>
+        <View style={{ flexDirection: 'row', alignSelf: 'stretch', alignItems: 'flex-start', padding: 20 }}>
+
+          <Image style={{ width: 25, height: 35, alignSelf: 'center' }} source={require('../assets/images/tag.png')} />
+
+          <View style={{ marginLeft: 15 }}>
+
+            <Text style={{ color: "white",fontWeight: 'bold',fontSize: 15, }}>
+              {item.title}
+            </Text>
+            <Text style={{ color: "#929ADD" }}>
+              {subItemStr}
+            </Text>
+          </View>
+
         </View>
+
       </TouchableOpacity>
     );
   }
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ height:250,
-          backgroundColor: '#2D2B66', overflow:'hidden',
+        <View style={{
+          height: 215,
+          backgroundColor: '#2D2B66', overflow: 'hidden',
           marginLeft: 70, marginRight: 70, marginBottom: 60,
           borderBottomLeftRadius: 30,
           borderBottomRightRadius: 30
         }}>
-          <View style={{ alignSelf: 'stretch', backgroundColor: '#3D3890', padding: 20 }}>
-            <Text style={{ color: "white" }}>
+          <View style={{ flexDirection: 'row', alignSelf: 'stretch', backgroundColor: '#3D3890', paddingLeft: 20, paddingRight: 20, paddingTop: 15, paddingBottom: 15 }}>
+            <Text style={{ flex: 9, color: "white", alignSelf: 'center' }}>
               What do you want to learn?
             </Text>
+            <Image style={{ flex: 1, width: 25, height: 25, alignSelf: 'center' }} source={require('../assets/images/podicon.png')} />
+
           </View>
           <FlatList
             data={this.state.data}
+            ItemSeparatorComponent={this.renderSeparator}
             renderItem={({ item }) => this.renderListItem(item)}
+
           />
         </View>
 
@@ -85,14 +110,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#150030',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  separator: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: '#8E8E8E',
   },
 });
