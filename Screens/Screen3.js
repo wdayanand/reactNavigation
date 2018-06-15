@@ -87,7 +87,7 @@ export default class Screen3 extends Component {
   }
   onClick() {
     const { navigate } = this.props.navigation
-    navigate("Screen4", {})
+    navigate("Screen1", {})
 
   }
   _onItemClick = (selectedItem) => {
@@ -96,7 +96,8 @@ export default class Screen3 extends Component {
     this.setState({ selectedCategory: { name: selectedItem.title } })
   };
   _onButtonClick = () => {
-
+    const { navigate } = this.props.navigation
+    navigate("Screen1", {})
   };
   renderSeparator = () => (
 

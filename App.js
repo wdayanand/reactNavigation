@@ -129,7 +129,7 @@ const switchApp = createSwitchNavigator({
     }
   },
   Root: {
-    screen: Screen3, navigationOptions: {
+    screen: App, navigationOptions: {
 
     }
 
