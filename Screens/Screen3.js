@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import { scale, moderateScale, verticalScale } from '../utility/scaling';
+import { Toolbar } from 'react-native-material-ui';
 import {
   StyleSheet,
 
@@ -22,6 +23,67 @@ export default class Screen3 extends Component {
   constructor(props) {
     super(props);
     this.state = { selectedCategory: { name: 'What do you want to learn ?' }, data: [{ title: 'Learning', subItem: [{ id: '1', name: 'Business' }, { id: '2', name: 'History' }] }, { title: 'Entertainment', subItem: [{ id: '1', name: 'Narrative' }] }, { title: 'Bollywood', subItem: [{ id: '1', name: 'sub1' }, { id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] }] }
+    this.state.filterData = this.state.data
+  }
+
+
+  searchText = (e) => {
+
+  }
+  /**
+          * Called when search text was changed.
+          */
+  onChangeText(e) {
+    let text = e.toLowerCase()
+    let fullList = this.state.data;
+    let filteredList = fullList.filter((item) => { // search from a full list, and not from a previous search results list
+      if (item.title.toLowerCase().match(text))
+        return item;
+    })
+    if (!text || text === '') {
+      this.setState({
+        filterData: fullList
+       
+      })
+    } else if (!filteredList.length) {
+      // set no data flag to true so as to render flatlist conditionally
+      this.setState({
+        filterData: []
+      })
+    }
+    else if (Array.isArray(filteredList)) {
+      this.setState({
+       
+        filterData: filteredList
+      })
+    }
+  }
+  /**
+  * Called when search was closed.
+  */
+  onSearchClosed() {
+    this.setState({
+      filterData: this.state.data,
+      noData: false,
+    })
+  }
+  /**
+  * Called when action to close search was requested.
+  */
+  onSearchCloseRequested() {
+
+  }
+  /**
+  * Called when search was opened.
+  */
+  onSearchPressed() {
+
+  }
+  /**
+  * Called when user press submit button on hw keyboard
+  */
+  onSubmitEditing() {
+    Alert.alert('text=')
   }
   onClick() {
     const { navigate } = this.props.navigation
@@ -30,8 +92,8 @@ export default class Screen3 extends Component {
   }
   _onItemClick = (selectedItem) => {
 
-   
-    this.setState({selectedCategory:{name:selectedItem.title}})
+
+    this.setState({ selectedCategory: { name: selectedItem.title } })
   };
   _onButtonClick = () => {
 
@@ -73,6 +135,18 @@ export default class Screen3 extends Component {
     return (
 
       <View style={styles.container}>
+        <View style={{ alignSelf: 'stretch', position: 'absolute', top: 0, width: require('Dimensions').get('window').width }}>
+          <Toolbar
+            style={{ container: { elevation: 0, backgroundColor: 'transparent' } }}
+            searchable={{
+              onSubmitEditing: () => this.onSubmitEditing(),
+              onChangeText: (input) => this.onChangeText(input),
+              onSearchClosed: () => this.onSearchClosed(),
+              autoFocus: true,
+              placeholder: 'Search',
+            }}
+          />
+        </View>
         <Text style={styles.appTitle}>
           Podsource
             </Text>
@@ -84,7 +158,7 @@ export default class Screen3 extends Component {
             <Image style={styles.podIconImg} source={require('../assets/images/podicon.png')} />
           </View>
           <FlatList
-            data={this.state.data}
+            data={this.state.filterData}
             ItemSeparatorComponent={this.renderSeparator}
             renderItem={({ item, index }) => this.renderListItem(item, index)}
 
@@ -176,12 +250,13 @@ const styles = StyleSheet.create({
 
   },
   selectedCategoryText: {
-    color: "white", alignSelf: 'center'
+    color: "white", alignSelf: 'center',
+    marginRight: moderateScale(10),
   },
   categoryContentContainer: {
-    height: moderateScale(215),
+    height: moderateScale(210),
     backgroundColor: '#2D2B66', overflow: 'hidden',
-    marginLeft: moderateScale(70), marginRight: moderateScale(70), marginBottom: moderateScale(60),
+    marginLeft: moderateScale(60), marginRight: moderateScale(60), marginBottom: moderateScale(60),
     borderBottomLeftRadius: moderateScale(30),
     borderBottomRightRadius: moderateScale(30)
   },

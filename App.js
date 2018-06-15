@@ -48,67 +48,28 @@ const playerListStack = createStackNavigator({
 });
 
 
-// const App = createBottomTabNavigator({
-//   Screen1: {
-//     screen: playerScreenStack, navigationOptions: {
-//       title: 'Options',
-//       tabBarIcon: ({tintColor}) => <Icon
-//         name='more-horiz'  color={tintColor}  />
-//     }
-//   },
-//   Screen2: {
-//     screen: Screen2, navigationOptions: {
-//       title: 'Collection',
-//       tabBarIcon: ({tintColor}) => <Icon
-//         name='collections'  color={tintColor} />
-//     }
-//   },
-//   Screen3: {
-//     screen: Screen3, navigationOptions: {
-//       title: 'Bookmark',
-//       tabBarIcon: ({tintColor}) => <Icon
-//         name='bookmark'  color={tintColor}  />
-//     }
-//   }
-// }, {
-//     tabBarOptions: {
-//       activeTintColor: 'white',
-//       style: {
-//         backgroundColor: '#3D4246'
-//       }
-//     },
-//     headerMode: 'screen',
-//     backBehavior: 'none',
-//     initialRouteName: 'Screen1'
-//   })
 const App = createBottomTabNavigator({
-  Screen1:
-  {
-    screen:playerScreenStack,navigationOptions:{
-      title:'Option',
-      tabBarIcon:()=><Image
-      source={require('./assets/images/Collection.png')}
-    />
-    }
-  }
-  ,
-
-  Screen2:{
-    screen:playerListStack,navigationOptions:{
-      title:'Collection',
-      tabBarIcon:()=><Image
-      source={require('./assets/images/Collection.png')}
-    />
+  Screen1: {
+    screen: playerScreenStack, navigationOptions: {
+      title: 'Options',
+      tabBarIcon: ({tintColor}) => <Icon
+        name='more-horiz'  color={tintColor}  />
     }
   },
-    Screen3:{
-      screen:Screen3,navigationOptions:{
-        title:'Bookmark',
-        tabBarIcon:()=><Image source={require('./assets/images/Collection.png')}
-        />
-      }
-
-    },
+  Screen2: {
+    screen: Screen2, navigationOptions: {
+      title: 'Collection',
+      tabBarIcon: ({tintColor}) => <Icon
+        name='collections'  color={tintColor} />
+    }
+  },
+  Screen3: {
+    screen: Screen3, navigationOptions: {
+      title: 'Bookmark',
+      tabBarIcon: ({tintColor}) => <Icon
+        name='bookmark'  color={tintColor}  />
+    }
+  }
 }, {
     tabBarOptions: {
       activeTintColor: 'white',
@@ -120,6 +81,45 @@ const App = createBottomTabNavigator({
     backBehavior: 'none',
     initialRouteName: 'Screen1'
   })
+// const App = createBottomTabNavigator({
+//   Screen1:
+//   {
+//     screen:playerScreenStack,navigationOptions:{
+//       title:'Option',
+//       tabBarIcon:()=><Image
+//       source={require('./assets/images/Collection.png')}
+//     />
+//     }
+//   }
+//   ,
+
+//   Screen2:{
+//     screen:playerListStack,navigationOptions:{
+//       title:'Collection',
+//       tabBarIcon:()=><Image
+//       source={require('./assets/images/Collection.png')}
+//     />
+//     }
+//   },
+//     Screen3:{
+//       screen:Screen3,navigationOptions:{
+//         title:'Bookmark',
+//         tabBarIcon:()=><Image source={require('./assets/images/Collection.png')}
+//         />
+//       }
+
+//     },
+// }, {
+//     tabBarOptions: {
+//       activeTintColor: 'white',
+//       style: {
+//         backgroundColor: '#3D4246'
+//       }
+//     },
+//     headerMode: 'screen',
+//     backBehavior: 'none',
+//     initialRouteName: 'Screen1'
+//   })
 
 
 const switchApp = createSwitchNavigator({
@@ -129,7 +129,7 @@ const switchApp = createSwitchNavigator({
     }
   },
   Root: {
-    screen: App, navigationOptions: {
+    screen: Screen3, navigationOptions: {
 
     }
 
