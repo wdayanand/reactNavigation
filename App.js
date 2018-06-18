@@ -48,17 +48,11 @@ const App = createBottomTabNavigator({
     }
   },
   Screen2: {
-          screen:playerListStack,navigationOptions:{
-            title:'Collection',
-            tabBarIcon: ({tintColor}) => <Icon
-           name='collections'  color={tintColor} />
-          
-          }
-    // screen: Screen2, navigationOptions: {
-    //   title: 'Collection',
-    //   tabBarIcon: ({tintColor}) => <Icon
-    //     name='collections'  color={tintColor} />
-    // }
+    screen: playerListStack, navigationOptions: {
+      title: 'Collection',
+      tabBarIcon: ({tintColor}) => <Icon
+        name='collections'  color={tintColor} />
+    }
   },
   Screen3: {
     screen: Screen3, navigationOptions: {

@@ -88,7 +88,7 @@ export default class App extends Component {
   onValueChange(num)
   {
    // Alert.alert(num.toString())
-   console.log(''+ num)
+   console.log('value=', ''+ num)
   }
 
 

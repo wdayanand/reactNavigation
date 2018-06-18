@@ -22,7 +22,7 @@ import {
 export default class Screen3 extends Component {
   constructor(props) {
     super(props);
-    this.state = { selectedCategory: { name: 'What do you want to learn ?' }, data: [{ title: 'Learning', subItem: [{ id: '1', name: 'Business' }, { id: '2', name: 'History' }] }, { title: 'Entertainment', subItem: [{ id: '1', name: 'Narrative' }] }, { title: 'Bollywood', subItem: [{ id: '1', name: 'sub1' }, { id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] }] }
+    this.state = { rightElementText: 'Search', selectedCategory: { name: 'What do you want to learn ?' }, data: [{ title: 'Learning', subItem: [{ id: '1', name: 'Business' }, { id: '2', name: 'History' }] }, { title: 'Entertainment', subItem: [{ id: '1', name: 'Narrative' }] }, { title: 'Bollywood', subItem: [{ id: '1', name: 'sub1' }, { id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] }] }
     this.state.filterData = this.state.data
   }
 
@@ -43,7 +43,7 @@ export default class Screen3 extends Component {
     if (!text || text === '') {
       this.setState({
         filterData: fullList
-       
+
       })
     } else if (!filteredList.length) {
       // set no data flag to true so as to render flatlist conditionally
@@ -53,7 +53,7 @@ export default class Screen3 extends Component {
     }
     else if (Array.isArray(filteredList)) {
       this.setState({
-       
+
         filterData: filteredList
       })
     }
@@ -98,6 +98,9 @@ export default class Screen3 extends Component {
   _onButtonClick = () => {
     const { navigate } = this.props.navigation
     navigate("Screen1", {})
+  };
+  onRightElementPress = () => {
+    Alert.alert('text=')
   };
   renderSeparator = () => (
 
@@ -146,6 +149,8 @@ export default class Screen3 extends Component {
               autoFocus: true,
               placeholder: 'Search',
             }}
+
+            rightElement={<Text onPress={() => this.onRightElementPress()} style={styles.searchText}> {this.state.rightElementText}</Text>}
           />
         </View>
         <Text style={styles.appTitle}>
@@ -179,6 +184,10 @@ export default class Screen3 extends Component {
               /></View>
           </TouchableOpacity>
         </View>
+        <View style={{ flexDirection: 'row', position: 'absolute', bottom: 5, left: 5 }}>
+          <Image style={styles.bottomPodIconImg} source={require('../assets/images/podicon.png')} />
+          <Text style={{ color: 'white',alignSelf:'center' ,marginLeft:10 }}>My Favorites</Text>
+        </View>
       </View>
 
     );
@@ -190,6 +199,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#150030',
+  },
+  searchText: {
+    color: 'white',
+    alignSelf: 'center'
   },
   podImgIcon: {
     width: moderateScale(25),
@@ -229,6 +242,12 @@ const styles = StyleSheet.create({
   podIconImg: {
     position: 'absolute',
     right: moderateScale(15),
+    width: moderateScale(25),
+    height: moderateScale(25),
+    alignSelf: 'center'
+  },
+  bottomPodIconImg: {
+
     width: moderateScale(25),
     height: moderateScale(25),
     alignSelf: 'center'
