@@ -5,43 +5,107 @@
  */
 
 import React, { Component } from 'react';
+import { scale, moderateScale, verticalScale } from '../utility/scaling';
+import { Toolbar } from 'react-native-material-ui';
 import {
   StyleSheet,
-  Button,
+
   Image,
   TouchableOpacity,
   Text,
   FlatList,
-  View
+  View, Alert
 } from 'react-native';
 
 
 
-export default class App extends Component {
+export default class Screen3 extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [{ title: 'Learning', subItem: [{ id: '1', name: 'Business' }, { id: '2', name: 'History' }] }, { title: 'Entertainment', subItem: [{ id: '1', name: 'Narrative' }] }, { title: 'Bollywood', subItem: [{ id: '1', name: 'sub1' }, { id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] }] }
+    this.state = { selectedCategory: { name: 'What do you want to learn ?' }, data: [{ title: 'Learning', subItem: [{ id: '1', name: 'Business' }, { id: '2', name: 'History' }] }, { title: 'Entertainment', subItem: [{ id: '1', name: 'Narrative' }] }, { title: 'Bollywood', subItem: [{ id: '1', name: 'sub1' }, { id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] }] }
+    this.state.filterData = this.state.data
+  }
+
+
+  searchText = (e) => {
+
+  }
+  /**
+          * Called when search text was changed.
+          */
+  onChangeText(e) {
+    let text = e.toLowerCase()
+    let fullList = this.state.data;
+    let filteredList = fullList.filter((item) => { // search from a full list, and not from a previous search results list
+      if (item.title.toLowerCase().match(text))
+        return item;
+    })
+    if (!text || text === '') {
+      this.setState({
+        filterData: fullList
+       
+      })
+    } else if (!filteredList.length) {
+      // set no data flag to true so as to render flatlist conditionally
+      this.setState({
+        filterData: []
+      })
+    }
+    else if (Array.isArray(filteredList)) {
+      this.setState({
+       
+        filterData: filteredList
+      })
+    }
+  }
+  /**
+  * Called when search was closed.
+  */
+  onSearchClosed() {
+    this.setState({
+      filterData: this.state.data,
+      noData: false,
+    })
+  }
+  /**
+  * Called when action to close search was requested.
+  */
+  onSearchCloseRequested() {
+
+  }
+  /**
+  * Called when search was opened.
+  */
+  onSearchPressed() {
+
+  }
+  /**
+  * Called when user press submit button on hw keyboard
+  */
+  onSubmitEditing() {
+    Alert.alert('text=')
   }
   onClick() {
     const { navigate } = this.props.navigation
-    navigate("Screen4", {})
+    navigate("Screen1", {})
 
   }
-  _onPress = () => {
+  _onItemClick = (selectedItem) => {
 
+
+    this.setState({ selectedCategory: { name: selectedItem.title } })
   };
   _onButtonClick = () => {
-
+    const { navigate } = this.props.navigation
+    navigate("Screen1", {})
   };
   renderSeparator = () => (
+
     <View
-      style={{
-        backgroundColor: '#3D3890',
-        height: 0.5,
-      }}
+      style={styles.itemRowSeprator}
     />
   );
-  renderListItem(item) {
+  renderListItem(item, index) {
     var fLen = item.subItem.length;
     var sybItems = item.subItem;
     var subItemStr = '';
@@ -52,84 +116,71 @@ export default class App extends Component {
         subItemStr += ',' + sybItems[i].name;
     }
     return (
-      <TouchableOpacity style={{ alignSelf: 'stretch', flex: 1 }} onPress={this._onPress}>
-        <View style={{ flexDirection: 'row', alignSelf: 'stretch', alignItems: 'flex-start', padding: 20 }}>
 
-          <Image style={{ width: 25, height: 35, alignSelf: 'center' }} source={require('../assets/images/tag.png')} />
-
-          <View style={{ marginLeft: 15 }}>
-
-            <Text style={{ color: "white", fontWeight: 'bold', fontSize: 15, }}>
+      <TouchableOpacity onPress={() => this._onItemClick(item)}>
+        <View style={styles.itemRowContianer}>
+          <Image style={styles.podImgIcon} source={require('../assets/images/tag.png')} />
+          <View style={{ marginLeft: moderateScale(15) }}>
+            <Text style={styles.itemRowTitle}>
               {item.title}
             </Text>
-            <Text style={{ color: "#929ADD" }}>
+            <Text style={styles.itemRowsubTitle}>
               {subItemStr}
             </Text>
           </View>
-
         </View>
-
       </TouchableOpacity>
     );
   }
   render() {
     return (
-      <View style={styles.container}>
 
-        <Text style={{ marginBottom: 60, fontWeight: 'bold', fontSize: 45, color: "white", alignSelf: 'center' }}>
+      <View style={styles.container}>
+        <View style={{ alignSelf: 'stretch', position: 'absolute', top: 0, width: require('Dimensions').get('window').width }}>
+          <Toolbar
+            style={{ container: { elevation: 0, backgroundColor: 'transparent' } }}
+            searchable={{
+              onSubmitEditing: () => this.onSubmitEditing(),
+              onChangeText: (input) => this.onChangeText(input),
+              onSearchClosed: () => this.onSearchClosed(),
+              autoFocus: true,
+              placeholder: 'Search',
+            }}
+          />
+        </View>
+        <Text style={styles.appTitle}>
           Podsource
             </Text>
-        <View style={{
-          height: 215,
-          backgroundColor: '#2D2B66', overflow: 'hidden',
-          marginLeft: 70, marginRight: 70, marginBottom: 60,
-          borderBottomLeftRadius: 30,
-          borderBottomRightRadius: 30
-        }}>
-          <View style={{ flexDirection: 'row', alignSelf: 'stretch', backgroundColor: '#3D3890', paddingLeft: 20, paddingRight: 20, paddingTop: 15, paddingBottom: 15 }}>
-            <Text style={{ flex: 9, color: "white", alignSelf: 'center' }}>
-              What do you want to learn?
+        <View style={styles.categoryContentContainer}>
+          <View style={styles.selectedCategory}>
+            <Text style={styles.selectedCategoryText}>
+              {this.state.selectedCategory.name}
             </Text>
-            <Image style={{ flex: 1, width: 25, height: 25, alignSelf: 'center' }} source={require('../assets/images/podicon.png')} />
-
+            <Image style={styles.podIconImg} source={require('../assets/images/podicon.png')} />
           </View>
           <FlatList
-            data={this.state.data}
+            data={this.state.filterData}
             ItemSeparatorComponent={this.renderSeparator}
-            renderItem={({ item }) => this.renderListItem(item)}
+            renderItem={({ item, index }) => this.renderListItem(item, index)}
 
           />
         </View>
-
         <View style={{
           alignItems: 'center'
         }}>
-
-
-          <TouchableOpacity style={{}} onPress={this._onButtonClick}>
-            <View style={{ flexDirection: 'column', alignSelf: 'stretch' }}>
-
+          <TouchableOpacity onPress={this._onButtonClick}>
+            <View style={styles.buttonContianer}>
               <View
-                style={{
-                  backgroundColor: '#3D3890',
-                  height: 1,
-                }}
+                style={styles.buttonLine}
               />
-              <Text style={{ margin: 15, color: 'white' }}>Stumble-a-pad</Text>
+              <Text style={styles.buttonText}>Stumble-a-pad</Text>
               <View
-                style={{
-                  backgroundColor: '#3D3890',
-                  height: 1,
-                }}
-              />
-            </View>
-
+                style={styles.buttonLine}
+              /></View>
           </TouchableOpacity>
-
-
-
         </View>
       </View>
+
     );
   }
 }
@@ -139,6 +190,76 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#150030',
+  },
+  podImgIcon: {
+    width: moderateScale(25),
+    height: moderateScale(35),
+    alignSelf: 'center'
+  },
+  itemRowSeprator: {
+    backgroundColor: '#3D3890',
+    height: 0.5,
+  },
+  itemRowTitle: {
+    color: "white",
+    fontWeight: 'bold',
+    fontSize: moderateScale(15)
+  },
+  itemRowsubTitle: {
+    color: "#929ADD"
+  },
+  itemRowContianer: {
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    alignItems: 'flex-start',
+    padding: moderateScale(20)
+  },
+  buttonContianer: {
+    flexDirection: 'column',
+    alignSelf: 'stretch'
+  },
+  buttonText: {
+    margin: moderateScale(15),
+    color: 'white'
+  },
+  buttonLine: {
+    backgroundColor: '#3D3890',
+    height: 1,
+  },
+  podIconImg: {
+    position: 'absolute',
+    right: moderateScale(15),
+    width: moderateScale(25),
+    height: moderateScale(25),
+    alignSelf: 'center'
+  },
+  appTitle: {
+    marginBottom: moderateScale(60),
+    fontWeight: 'bold',
+    fontSize: moderateScale(45),
+    color: "white",
+    alignSelf: 'center'
+  },
+  selectedCategory: {
+    flexDirection: 'row',
+    alignSelf: 'stretch',
+    backgroundColor: '#3D3890',
+    paddingLeft: moderateScale(20),
+    paddingRight: moderateScale(20),
+    paddingTop: moderateScale(15),
+    paddingBottom: moderateScale(15),
+
+  },
+  selectedCategoryText: {
+    color: "white", alignSelf: 'center',
+    marginRight: moderateScale(10),
+  },
+  categoryContentContainer: {
+    height: moderateScale(210),
+    backgroundColor: '#2D2B66', overflow: 'hidden',
+    marginLeft: moderateScale(60), marginRight: moderateScale(60), marginBottom: moderateScale(60),
+    borderBottomLeftRadius: moderateScale(30),
+    borderBottomRightRadius: moderateScale(30)
   },
   separator: {
     flex: 1,
