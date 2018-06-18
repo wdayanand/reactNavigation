@@ -100,7 +100,7 @@ export default class Screen3 extends Component {
     navigate("Screen1", {})
   };
   onRightElementPress = () => {
-    Alert.alert('text=')
+    console.log('log','asds')
   };
   renderSeparator = () => (
 
@@ -184,9 +184,9 @@ export default class Screen3 extends Component {
               /></View>
           </TouchableOpacity>
         </View>
-        <View style={{ flexDirection: 'row', position: 'absolute', bottom: 5, left: 5 }}>
+        <View style={styles.favoriteContianer}>
           <Image style={styles.bottomPodIconImg} source={require('../assets/images/podicon.png')} />
-          <Text style={{ color: 'white',alignSelf:'center' ,marginLeft:10 }}>My Favorites</Text>
+          <Text style={styles.favoriteText}>My Favorites</Text>
         </View>
       </View>
 
@@ -251,6 +251,16 @@ const styles = StyleSheet.create({
     width: moderateScale(25),
     height: moderateScale(25),
     alignSelf: 'center'
+  },
+  favoriteContianer: {
+    flexDirection: 'row',
+    position: 'absolute', bottom: 5,
+    left: 5
+  },
+  favoriteText: {
+    color: 'white',
+    alignSelf: 'center',
+    marginLeft: moderateScale(10)
   },
   appTitle: {
     marginBottom: moderateScale(60),
