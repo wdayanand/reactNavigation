@@ -57,7 +57,7 @@ const App = createBottomTabNavigator({
     }
   },
   Screen2: {
-    screen: Screen2, navigationOptions: {
+    screen: playerListStack, navigationOptions: {
       title: 'Collection',
       tabBarIcon: ({tintColor}) => <Icon
         name='collections'  color={tintColor} />
