@@ -23,7 +23,9 @@ export default class App extends Component {
       title1:'title 1',
       title2:'sub title',
       array_music:[ "Music 1", "Music 2", "Music 3", "Music 4", "Music 5", "Music 6" ],
-      value:'0'
+      value:'0',
+      angle: 0,
+      page: 0
     }
   }
   
@@ -75,6 +77,8 @@ export default class App extends Component {
 
   onPageChange(page)
   {
+
+    this.setState.page = page
     let authToken=this.state.array_music[page];
     //page.toString()
     this.setState(
@@ -85,12 +89,32 @@ export default class App extends Component {
       );
   }
 
-  onValueChange(num)
-  {
-   // Alert.alert(num.toString())
-   console.log('value=', ''+ num)
-  }
+  onValueChange(num) {
 
+    if (num - this.state.angle >= 45) {
+    if (num - this.state.angle > 0) {
+    if (this.state.array_music.count >= this.setState.page + 1)
+    {
+    this.carousel.goToPage(this.state.page + 1);
+    }
+    else{
+      console.log('not working')
+
+    }
+    }
+    else {
+    if (this.setState.page - 1>0) {
+      Alert.alert(this.state.page - 1)
+    this.carousel.goToPage(this.state.page - 1);
+    }
+    else{
+      console.log('not working')
+
+
+    }
+    }
+    }
+  }
 
   render() {
     var musicArray = this.state.array_music
@@ -118,7 +142,7 @@ export default class App extends Component {
         <View> <Text> this.state.value></Text></View>
 
         <View style={style.mainContainer}>
-          <CarouselPager onPageChange={(page)=> this.onPageChange(page)} ref={ref => this.carousel = ref} initialPage={0} pageStyle={{ backgroundColor: '#fff' }}>
+          <CarouselPager onPageChange={(page)=> this.onPageChange(page)} ref={ref => this.carousel = ref} initialPage={this.state.page} pageStyle={{ backgroundColor: '#fff' }}>
           {
              musicArray.map((item, key)=>
              (
