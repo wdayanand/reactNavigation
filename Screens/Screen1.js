@@ -38,8 +38,6 @@ export default class App extends Component {
   }
   appClose() {
     BackHandler.exitApp()
-
-
   }
 
 
@@ -77,9 +75,7 @@ export default class App extends Component {
 
   render() {
     return (
-
-
-      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: 'white' }}>
+      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: 'black' }}>
         <Toolbar
           leftElement="close"
           centerElement="Podsource"
