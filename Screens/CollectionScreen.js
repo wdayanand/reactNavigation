@@ -90,30 +90,43 @@ export default class App extends Component {
   }
 
   onValueChange(num) {
-
-    if (num - this.state.angle >= 45) {
-    if (num - this.state.angle > 0) {
-    if (this.state.array_music.count >= this.setState.page + 1)
+    if (num - this.state.angle >= 45)
+     {
+    if (num - this.state.angle > 0) 
     {
-    this.carousel.goToPage(this.state.page + 1);
+    if (this.state.array_music.length >= this.state.page + 1)
+    {
+    this.carousel.goToPage( this.state.page+ 1);
+    this.state.page = this.state.page+1
+   let authToken=this.state.array_music[this.state.page];
+   this.setState(
+    {
+      title1: this.state.page.toString() + " " + authToken,
+      title2: (num - this.state.angle).toString() 
+    })
     }
-    else{
-      console.log('not working')
-
     }
-    }
+  }
     else {
-    if (this.setState.page - 1>0) {
-      Alert.alert(this.state.page - 1)
-    this.carousel.goToPage(this.state.page - 1);
-    }
-    else{
-      console.log('not working')
+    if (num - this.state.angle <= -45)
+    {
+    if (this.state.page - 1>0) 
+    {
+      this.state.page = this.state.page - 1
+      this.carousel.goToPage(this.state.page);
+     let authToken=this.state.array_music[this.state.page];
+     this.setState(
+      {
+        title1: this.state.page.toString() + " " + authToken,
+        title2: (num - this.state.angle).toString() 
+      })
 
-
     }
-    }
-    }
+  }
+  }
+ 
+    
+    this.state.angle = num
   }
 
   render() {
