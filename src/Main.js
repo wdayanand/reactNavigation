@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import App from './App';
+import AppNavigator from './src/AppNavigator';
 import { COLOR, ThemeProvider } from 'react-native-material-ui';
 
 // you can set your style right here, it'll be propagated to application
@@ -18,7 +18,7 @@ export default class Main extends Component {
     render() {
         return (
             <ThemeProvider uiTheme={uiTheme}>
-                <App />
+                <AppNavigator />
             </ThemeProvider>
         );
     }
