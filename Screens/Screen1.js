@@ -79,7 +79,7 @@ export default class App extends Component {
     return (
 
 
-      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: 'white' }}>
+      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: '#150030' }}>
         <Toolbar
           leftElement="close"
           centerElement="Podsource"
@@ -91,7 +91,7 @@ export default class App extends Component {
             placeholder: 'Search',
           }}
         />
-        <Text>{ I18n.t('greeting')}</Text>
+       
         <Text style={{ color: 'white', marginTop: 10, alignSelf: 'center' }}>{this.state.value} min remaining</Text>
         <View style={{
           flexDirection: 'row',
@@ -133,6 +133,7 @@ export default class App extends Component {
           <View style={{
             flexDirection: 'row',
             justifyContent: 'center',
+            alignSelf:'center',
             alignItems: 'center',
           }}>
             <Image style={{ margin: 20, width: moderateScale(20), height: moderateScale(20), alignSelf: 'center' }} source={require('../assets/images/prev15.png')} />

@@ -5,7 +5,7 @@ import { Toolbar } from 'react-native-material-ui';
 import { BackHandler } from 'react-native'
 
 import {
-  StyleSheet,Alert,
+  StyleSheet, Alert,
   Text,
   Button,
   View,
@@ -16,19 +16,18 @@ import SegmentedControlTab from 'react-native-segmented-control-tab'
 
 
 export default class App extends Component {
-  constructor(props)
-  {
+  constructor(props) {
     super(props)
-    this.state={
-      title1:'title 1',
-      title2:'sub title',
-      array_music:[ "Music 1", "Music 2", "Music 3", "Music 4", "Music 5", "Music 6" ],
-      value:'0',
+    this.state = {
+      title1: 'title 1',
+      title2: 'sub title',
+      array_music: ["Music 1", "Music 2", "Music 3", "Music 4", "Music 5", "Music 6"],
+      value: '0',
       angle: 0,
       page: 0
     }
   }
-  
+
   state = {
     selected: 0
   }
@@ -39,7 +38,7 @@ export default class App extends Component {
       selectedIndex: index,
     });
   }
- 
+
   appClose() {
     BackHandler.exitApp()
 
@@ -49,17 +48,15 @@ export default class App extends Component {
      * Called when search text was changed.
             */
 
-          
-  onChangeText(input)
-   {
 
-   }
+  onChangeText(input) {
+
+  }
 
   /**
   * Called when search was closed.
   */
-  onSearchClosed() 
-  {
+  onSearchClosed() {
 
   }
   /**
@@ -75,57 +72,52 @@ export default class App extends Component {
 
   }
 
-  onPageChange(page)
-  {
+  onPageChange(page) {
 
     this.setState.page = page
-    let authToken=this.state.array_music[page];
+    let authToken = this.state.array_music[page];
     //page.toString()
     this.setState(
       {
-        title1: 'Title' + ' ' + authToken ,
-        title2: 'Sub Title' + ' ' + authToken 
+        title1: 'Title' + ' ' + authToken,
+        title2: 'Sub Title' + ' ' + authToken
       }
-      );
+    );
   }
 
   onValueChange(num) {
-    if (num - this.state.angle >= 45)
-     {
-    if (num - this.state.angle > 0) 
-    {
-    if (this.state.array_music.length >= this.state.page + 1)
-    {
-    this.carousel.goToPage( this.state.page+ 1);
-    this.state.page = this.state.page+1
-   let authToken=this.state.array_music[this.state.page];
-   this.setState(
-    {
-      title1: this.state.page.toString() + " " + authToken,
-      title2: (num - this.state.angle).toString() 
-    })
+    console.info(""+num)
+    if (num - this.state.angle >= 45) {
+      if (num - this.state.angle > 0) {
+        if (this.state.array_music.length >= this.state.page + 1) {
+          this.carousel.goToPage(this.state.page + 1);
+          this.state.page = this.state.page + 1
+          let authToken = this.state.array_music[this.state.page];
+          this.setState(
+            {
+              title1: this.state.page.toString() + " " + authToken,
+              title2: (num - this.state.angle).toString()
+            })
+        }
+      }
     }
-    }
-  }
     else {
-    if (num - this.state.angle <= -45)
-    {
-    if (this.state.page - 1>0) 
-    {
-      this.state.page = this.state.page - 1
-      this.carousel.goToPage(this.state.page);
-     let authToken=this.state.array_music[this.state.page];
-     this.setState(
-      {
-        title1: this.state.page.toString() + " " + authToken,
-        title2: (num - this.state.angle).toString() 
-      })
+      if (num - this.state.angle <= -45) {
+        if (this.state.page - 1 > 0) {
+          this.state.page = this.state.page - 1
+          this.carousel.goToPage(this.state.page);
+          let authToken = this.state.array_music[this.state.page];
+          this.setState(
+            {
+              title1: this.state.page.toString() + " " + authToken,
+              title2: (num - this.state.angle).toString()
+            })
 
+        }
+      }
     }
-  }
-  }
- 
-    
+
+
     this.state.angle = num
   }
 
@@ -134,7 +126,7 @@ export default class App extends Component {
     const { navigate } = this.props.navigation
     return (
       <View style={style.backgroundContent}>
-      <Toolbar
+        <Toolbar
           leftElement="close"
           centerElement="Podsource"
           onLeftElementPress={() => this.appClose()}
@@ -152,17 +144,17 @@ export default class App extends Component {
             onTabPress={this.handleIndexChange}
           />
         </View>
-        <View> <Text> this.state.value></Text></View>
+
 
         <View style={style.mainContainer}>
-          <CarouselPager onPageChange={(page)=> this.onPageChange(page)} ref={ref => this.carousel = ref} initialPage={this.state.page} pageStyle={{ backgroundColor: '#fff' }}>
-          {
-             musicArray.map((item, key)=>
-             (
-            <View > <Text> { item } </Text> </View>
-            )
-           )}
-            
+          <CarouselPager onPageChange={(page) => this.onPageChange(page)} ref={ref => this.carousel = ref} initialPage={2} pageStyle={{ backgroundColor: '#fff' }}>
+            {musicArray.map((item, key) =>
+              (
+                <View key={key}><Text>{item}</Text></View>
+              
+              )
+            )}
+
           </CarouselPager>
         </View>
         <View style={style.bottomcontainer}>
@@ -177,18 +169,14 @@ export default class App extends Component {
             }}>
               <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-
-                { 
-                  <Dial 
-                  //onPageChange={(page)=> this.onPageChange(page)} 
-                  style={{ width: 120, height: 120, marginBottom: 30, backgroundColor: 'gray' }} 
-                  maximumValue={4}
+                <Dial
+                  style={{ width: 120, height: 120, marginBottom: 30, backgroundColor: 'gray' }}
+                  maximumValue={100}
                   minimumValue={0}
-                  step={1}
-                  onValueChange={num => this.onValueChange(num)}            
-                >    <Image style={{ width: 120, height: 120 }} source={require("../assets/images/img_Circle.png")}></Image>
-                </Dial> }
-
+                  step={10}
+                  onValueChange={num => this.onValueChange(num)}>
+                  <Image style={{ width: 120, height: 120 }} source={require('../assets/images/img_Circle.png')} />
+                </Dial>
               </View>
             </View>
 
