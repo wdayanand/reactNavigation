@@ -1,9 +1,9 @@
 
 // Available languages
 import I18n from 'react-native-i18n';
-translations = {
-    'en': require('./en')
-};
 I18n.fallbacks = true;
-I18n.translations=translations;
+I18n.translations = {
+    'en': require('./en'),
+    'ru': require('./ru')
+};
 export { I18n };
