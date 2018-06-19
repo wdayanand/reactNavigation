@@ -14,6 +14,8 @@ import {
 import { BackHandler, Slider, Image, Button, Alert } from 'react-native'
 import { Toolbar } from 'react-native-material-ui';
 import { scale, moderateScale, verticalScale } from '../utility/scaling';
+import { I18n } from '../utility/translations/Locale';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -77,7 +79,7 @@ export default class App extends Component {
     return (
 
 
-      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: 'black' }}>
+      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: 'white' }}>
         <Toolbar
           leftElement="close"
           centerElement="Podsource"
@@ -89,6 +91,7 @@ export default class App extends Component {
             placeholder: 'Search',
           }}
         />
+        <Text>{ I18n.t('greeting')}</Text>
         <Text style={{ color: 'white', marginTop: 10, alignSelf: 'center' }}>{this.state.value} min remaining</Text>
         <View style={{
           flexDirection: 'row',
