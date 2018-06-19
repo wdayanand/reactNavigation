@@ -14,6 +14,8 @@ import {
 import { BackHandler, Slider, Image, Button, Alert } from 'react-native'
 import { Toolbar } from 'react-native-material-ui';
 import { scale, moderateScale, verticalScale } from '../utility/scaling';
+import { I18n } from '../utility/translations/Locale';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -77,7 +79,7 @@ export default class App extends Component {
     return (
 
 
-      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: 'black' }}>
+      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: 'white' }}>
         <Toolbar
           leftElement="close"
           centerElement="Podsource"
@@ -89,6 +91,7 @@ export default class App extends Component {
             placeholder: 'Search',
           }}
         />
+        <Text>{ I18n.t('greeting')}</Text>
         <Text style={{ color: 'white', marginTop: 10, alignSelf: 'center' }}>{this.state.value} min remaining</Text>
         <View style={{
           flexDirection: 'row',
@@ -99,7 +102,7 @@ export default class App extends Component {
           <Slider
             maximumTrackTintColor='#ff00ff'
             minimumValue={1}
-            style={{ width: 250, alignItems: 'stretch' }}
+            style={{ width: moderateScale(250), alignItems: 'stretch' }}
             maximumValue={100}
             step={1}
             value={this.state.value}
@@ -109,11 +112,9 @@ export default class App extends Component {
         <Text style={{ color: 'white', alignSelf: 'center' }}>Add section</Text>
         <View style={{
           flexDirection: 'column',
-         
-          flexDirection: 'column',
           justifyContent: 'center',
-          marginTop:'auto',
-          marginBottom:'auto',
+          marginTop: 'auto',
+          marginBottom: 'auto',
           alignItems: 'center'
         }}>
 
@@ -125,7 +126,7 @@ export default class App extends Component {
 
         </View>
         <View style={{
-          
+
           justifyContent: 'center',
           alignItems: 'center',
         }}>
@@ -153,5 +154,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  
+
 });
