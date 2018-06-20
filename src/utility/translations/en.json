@@ -1,3 +1,7 @@
 {
-    "greeting": "Hello world"
+    "lbl_search": "Search",
+    "hint_search": "Search",
+    "init_category_selection_txt":"What do you want to learn ?",
+    "lbl_my_favorite": "My Favorites",
+    "btn_stumbe_pad":"Stumble-a-pad"
 }

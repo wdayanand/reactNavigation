@@ -7,6 +7,9 @@
 import React, { Component } from 'react';
 import { scale, moderateScale, verticalScale } from '../utility/scaling';
 import { Toolbar } from 'react-native-material-ui';
+import { I18n } from '../utility/translations/Locale';
+import { getCategory } from '../services/api'
+import Spinner from 'react-native-loading-spinner-overlay';
 import {
   StyleSheet,
 
@@ -20,12 +23,37 @@ import {
 
 
 export default class Screen3 extends Component {
+
+
   constructor(props) {
     super(props);
-    this.state = { rightElementText: 'Search', selectedCategory: { name: 'What do you want to learn ?' }, data: [{ title: 'Learning', subItem: [{ id: '1', name: 'Business' }, { id: '2', name: 'History' }] }, { title: 'Entertainment', subItem: [{ id: '1', name: 'Narrative' }] }, { title: 'Bollywood', subItem: [{ id: '1', name: 'sub1' }, { id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] }] }
+    this.state = { visible: false, rightElementText: I18n.t('lbl_search'), selectedCategory: { name: I18n.t('init_category_selection_txt') }, data: [{ title: 'Learning', subItem: [{ id: '1', name: 'Business' }, { id: '2', name: 'History' }] }, { title: 'Entertainment', subItem: [{ id: '1', name: 'Narrative' }] }, { title: 'Bollywood', subItem: [{ id: '1', name: 'sub1' }, { id: '2', name: 'sub2' }] }, { title: 'b', subItem: [{ id: '1', name: 'sub1' }] }] }
     this.state.filterData = this.state.data
-  }
 
+  }
+  componentDidMount() {
+    //
+
+    this.didBlurSubscription = this.props.navigation.addListener(
+      'didFocus',
+      payload => {
+        this.setState({ visible: true })
+        getCategory()
+          .then((responseJson) => {
+            this.setState({ visible: false })
+            console.info(responseJson);
+            return responseJson;
+          })
+          .catch((error) => {
+            this.setState({ visible: false })
+            Alert.alert("" + error.message)
+          });
+      }
+    );
+  }
+  componentWillUnmount() {
+    didBlurSubscription.remove();
+  }
 
   searchText = (e) => {
 
@@ -100,7 +128,7 @@ export default class Screen3 extends Component {
     navigate("Screen1", {})
   };
   onRightElementPress = () => {
-    console.log('log','asds')
+    console.log('log', 'asds')
   };
   renderSeparator = () => (
 
@@ -139,6 +167,7 @@ export default class Screen3 extends Component {
     return (
 
       <View style={styles.container}>
+        <Spinner animation='fade' visible={this.state.visible} textStyle={{ color: '#FFF' }} />
         <View style={{ alignSelf: 'stretch', position: 'absolute', top: 0, width: require('Dimensions').get('window').width }}>
           <Toolbar
             style={{ container: { elevation: 0, backgroundColor: 'transparent' } }}
@@ -147,7 +176,7 @@ export default class Screen3 extends Component {
               onChangeText: (input) => this.onChangeText(input),
               onSearchClosed: () => this.onSearchClosed(),
               autoFocus: true,
-              placeholder: 'Search',
+              placeholder: I18n.t('hint_search'),
             }}
 
             rightElement={<Text onPress={() => this.onRightElementPress()} style={styles.searchText}> {this.state.rightElementText}</Text>}
@@ -178,7 +207,7 @@ export default class Screen3 extends Component {
               <View
                 style={styles.buttonLine}
               />
-              <Text style={styles.buttonText}>Stumble-a-pad</Text>
+              <Text style={styles.buttonText}>{I18n.t('btn_stumbe_pad')}</Text>
               <View
                 style={styles.buttonLine}
               /></View>
@@ -186,7 +215,7 @@ export default class Screen3 extends Component {
         </View>
         <View style={styles.favoriteContianer}>
           <Image style={styles.bottomPodIconImg} source={require('../assets/images/podicon.png')} />
-          <Text style={styles.favoriteText}>My Favorites</Text>
+          <Text style={styles.favoriteText}>{I18n.t('lbl_my_favorite')}</Text>
         </View>
       </View>
 
@@ -296,3 +325,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#8E8E8E',
   },
 });
+
+
