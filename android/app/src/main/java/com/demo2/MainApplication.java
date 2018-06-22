@@ -3,6 +3,10 @@ package com.demo2;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import rnsoundplayer.RNSoundPlayerPackage;
+import guichaguri.trackplayer.TrackPlayer;
+import com.zmxv.RNSound.RNSoundPackage;
+import com.cinder92.musicfiles.RNReactNativeGetMusicFilesPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +29,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNSoundPlayerPackage(),
+            new TrackPlayer(),
+            new RNSoundPackage(),
+            new RNReactNativeGetMusicFilesPackage(),
             new RNI18nPackage(),
             new VectorIconsPackage()
       );

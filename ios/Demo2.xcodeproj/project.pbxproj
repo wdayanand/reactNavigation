@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -24,6 +23,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		16824A170EE741C59510246A /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3CE3F398797440BB01F8768 /* Zocial.ttf */; };
 		16BBA033F9FD42FD8CAA2D6B /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23F1E12D4B9640C28C7A1038 /* Octicons.ttf */; };
+		18CE4BFA20DA7BC80083D32A /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		18FEFE6920D2869300533875 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18FEFE3920D2869300533875 /* Entypo.ttf */; };
 		18FEFE6A20D2869300533875 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18FEFE3A20D2869300533875 /* EvilIcons.ttf */; };
 		18FEFE6B20D2869300533875 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18FEFE3B20D2869300533875 /* Feather.ttf */; };
@@ -92,7 +92,7 @@
 		6F49589F3D71492FB2097CB2 /* libRNSearchBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0685722D6BF4F7C835539DC /* libRNSearchBar.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A4C5068370734915ACE90878 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CB679252A9E4738BF3DCAD1 /* Entypo.ttf */; };
-		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		AA42D684D10B4E8CABF8D396 /* libRNReactNativeGetMusicFiles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E575A476820B4C1ABD60C1AA /* libRNReactNativeGetMusicFiles.a */; };
 		C2C27E7FCDA24936B6A60750 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 976FFC0F8D76447BA2A0AA2F /* MaterialIcons.ttf */; };
 		C5C6F58D0BEF4E2FA7B009C1 /* libRNI18n-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC990E52CC1446F5BE23B4B7 /* libRNI18n-tvOS.a */; };
 		C9DBC44705C64015A877362A /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B6066EF11F848D8A06A478C /* EvilIcons.ttf */; };
@@ -171,6 +171,48 @@
 			proxyType = 2;
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
+		};
+		18C6FC7D20DA36150072A3D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A67AC243457940CDB2157468 /* RNReactNativeGetMusicFiles.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNReactNativeGetMusicFiles;
+		};
+		18CE4BB620DA788E0083D32A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AEBA86948704B42BFD1D6C8 /* RNSound.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
+			remoteInfo = RNSound;
+		};
+		18CE4BF720DA7A8F0083D32A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D2F27E29C434292809DF99F /* RNTrackPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B0E28291F07D76F00B71D2A;
+			remoteInfo = RNTrackPlayer;
+		};
+		18CE4C3C20DA82610083D32A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02EA4DDC8CE243C0B326799B /* RNSoundPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNSoundPlayer;
+		};
+		18CE4C9820DA85040083D32A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18CE4C6720DA85040083D32A /* RNSoundPlayer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNSoundPlayer;
+		};
+		18CE4CC720DA857C0083D32A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18CE4CB720DA857C0083D32A /* RNSound.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
+			remoteInfo = RNSound;
 		};
 		18FB79E320D8E38B006CF205 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -415,6 +457,8 @@
 		00E356EE1AD99517003FC87E /* Demo2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Demo2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* Demo2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo2Tests.m; sourceTree = "<group>"; };
+		02EA4DDC8CE243C0B326799B /* RNSoundPlayer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSoundPlayer.xcodeproj; path = "../node_modules/react-native-sound-player/ios/RNSoundPlayer.xcodeproj"; sourceTree = "<group>"; };
+		04DF7376C5104F1D8C8B738A /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
 		0C80996C2F3F4813A06DDA31 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		112AD4220A5741C79C11A521 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		113CFE77CD04480A89F27D19 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
@@ -428,6 +472,45 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Demo2/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo2/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		18CE4C5420DA85040083D32A /* gradle.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = gradle.xml; sourceTree = "<group>"; };
+		18CE4C5520DA85040083D32A /* misc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = misc.xml; sourceTree = "<group>"; };
+		18CE4C5620DA85040083D32A /* modules.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = modules.xml; sourceTree = "<group>"; };
+		18CE4C5720DA85040083D32A /* runConfigurations.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = runConfigurations.xml; sourceTree = "<group>"; };
+		18CE4C5820DA85040083D32A /* workspace.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = workspace.xml; sourceTree = "<group>"; };
+		18CE4C5920DA85040083D32A /* android.iml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = android.iml; sourceTree = "<group>"; };
+		18CE4C5A20DA85040083D32A /* build.gradle */ = {isa = PBXFileReference; lastKnownFileType = text; path = build.gradle; sourceTree = "<group>"; };
+		18CE4C5B20DA85040083D32A /* local.properties */ = {isa = PBXFileReference; lastKnownFileType = text; path = local.properties; sourceTree = "<group>"; };
+		18CE4C5E20DA85040083D32A /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
+		18CE4C6120DA85040083D32A /* RNSoundPlayerModule.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = RNSoundPlayerModule.java; sourceTree = "<group>"; };
+		18CE4C6220DA85040083D32A /* RNSoundPlayerPackage.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = RNSoundPlayerPackage.java; sourceTree = "<group>"; };
+		18CE4C6320DA85040083D32A /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		18CE4C6520DA85040083D32A /* RNSoundPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSoundPlayer.h; sourceTree = "<group>"; };
+		18CE4C6620DA85040083D32A /* RNSoundPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSoundPlayer.m; sourceTree = "<group>"; };
+		18CE4C6720DA85040083D32A /* RNSoundPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = RNSoundPlayer.xcodeproj; sourceTree = "<group>"; };
+		18CE4C6A20DA85040083D32A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		18CE4C6B20DA85040083D32A /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		18CE4C6C20DA85040083D32A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		18CE4C9E20DA857C0083D32A /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		18CE4CA520DA857C0083D32A /* build.gradle */ = {isa = PBXFileReference; lastKnownFileType = text; path = build.gradle; sourceTree = "<group>"; };
+		18CE4CA820DA857C0083D32A /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
+		18CE4CAD20DA857C0083D32A /* RNSoundModule.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = RNSoundModule.java; sourceTree = "<group>"; };
+		18CE4CAE20DA857C0083D32A /* RNSoundPackage.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = RNSoundPackage.java; sourceTree = "<group>"; };
+		18CE4CAF20DA857C0083D32A /* index.d.ts */ = {isa = PBXFileReference; lastKnownFileType = text; path = index.d.ts; sourceTree = "<group>"; };
+		18CE4CB020DA857C0083D32A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		18CE4CB120DA857C0083D32A /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		18CE4CB220DA857C0083D32A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		18CE4CB420DA857C0083D32A /* RNSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSound.h; sourceTree = "<group>"; };
+		18CE4CB520DA857C0083D32A /* RNSound.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSound.m; sourceTree = "<group>"; };
+		18CE4CB620DA857C0083D32A /* RNSound.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RNSound.podspec; sourceTree = "<group>"; };
+		18CE4CB720DA857C0083D32A /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = RNSound.xcodeproj; sourceTree = "<group>"; };
+		18CE4CBA20DA857C0083D32A /* sound.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = sound.js; sourceTree = "<group>"; };
+		18CE4CBE20DA857C0083D32A /* project.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = project.json; sourceTree = "<group>"; };
+		18CE4CC020DA857C0083D32A /* AssemblyInfo.cs */ = {isa = PBXFileReference; lastKnownFileType = text; path = AssemblyInfo.cs; sourceTree = "<group>"; };
+		18CE4CC120DA857C0083D32A /* RNSoundModule.rd.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RNSoundModule.rd.xml; sourceTree = "<group>"; };
+		18CE4CC220DA857C0083D32A /* RNSound.cs */ = {isa = PBXFileReference; lastKnownFileType = text; path = RNSound.cs; sourceTree = "<group>"; };
+		18CE4CC320DA857C0083D32A /* RNSoundModule.csproj */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RNSoundModule.csproj; sourceTree = "<group>"; };
+		18CE4CC420DA857C0083D32A /* RNSoundPackage.cs */ = {isa = PBXFileReference; lastKnownFileType = text; path = RNSoundPackage.cs; sourceTree = "<group>"; };
+		18CE4CC520DA857C0083D32A /* RNSoundModule.sln */ = {isa = PBXFileReference; lastKnownFileType = text; path = RNSoundModule.sln; sourceTree = "<group>"; };
 		18FB79E520D8E462006CF205 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		18FEFE3920D2869300533875 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
 		18FEFE3A20D2869300533875 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
@@ -452,6 +535,7 @@
 		18FEFE7D20D2893900533875 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		18FEFE7E20D2893900533875 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		18FEFE7F20D2893A00533875 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		1D2F27E29C434292809DF99F /* RNTrackPlayer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNTrackPlayer.xcodeproj; path = "../node_modules/react-native-track-player/ios/RNTrackPlayer.xcodeproj"; sourceTree = "<group>"; };
 		23F1E12D4B9640C28C7A1038 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* Demo2-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo2-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Demo2-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Demo2-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -459,18 +543,23 @@
 		3E393485AB9748EC8E79E808 /* libRNI18n.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNI18n.a; sourceTree = "<group>"; };
 		40DACA9133DC46E0B392CAAC /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		4B6066EF11F848D8A06A478C /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		5AEBA86948704B42BFD1D6C8 /* RNSound.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		5CB679252A9E4738BF3DCAD1 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		976FFC0F8D76447BA2A0AA2F /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		A0685722D6BF4F7C835539DC /* libRNSearchBar.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSearchBar.a; sourceTree = "<group>"; };
+		A5A49FB337C941098A0F3755 /* libRNTrackPlayer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNTrackPlayer.a; sourceTree = "<group>"; };
+		A67AC243457940CDB2157468 /* RNReactNativeGetMusicFiles.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNReactNativeGetMusicFiles.xcodeproj; path = "../node_modules/react-native-get-music-files/ios/RNReactNativeGetMusicFiles.xcodeproj"; sourceTree = "<group>"; };
 		A73838AAD65C4EABB2BA6361 /* RNSearchBar.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSearchBar.xcodeproj; path = "../node_modules/react-native-search-bar/ios/RNSearchBar.xcodeproj"; sourceTree = "<group>"; };
 		A922E17AAB8C4CCCBF630405 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B3CE3F398797440BB01F8768 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		C76EFA25910B4EAAA2247458 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		CFFA2DF772F542219D640D4A /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		E575A476820B4C1ABD60C1AA /* libRNReactNativeGetMusicFiles.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNReactNativeGetMusicFiles.a; sourceTree = "<group>"; };
+		F6F4CA381948476FB3F3C1F9 /* libRNSoundPlayer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSoundPlayer.a; sourceTree = "<group>"; };
 		FBDDEBE77C5C48F6897BE182 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		FC990E52CC1446F5BE23B4B7 /* libRNI18n-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNI18n-tvOS.a"; sourceTree = "<group>"; };
 		FDCCE9E69E004870936BA5E7 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
@@ -489,7 +578,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
+				18CE4BFA20DA7BC80083D32A /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -505,6 +594,7 @@
 				D7E738E145E44C48A96EB815 /* libRNVectorIcons.a in Frameworks */,
 				45CDE2A8752645E08AA9422E /* libRNI18n.a in Frameworks */,
 				6F49589F3D71492FB2097CB2 /* libRNSearchBar.a in Frameworks */,
+				AA42D684D10B4E8CABF8D396 /* libRNReactNativeGetMusicFiles.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +749,10 @@
 				3E393485AB9748EC8E79E808 /* libRNI18n.a */,
 				A0685722D6BF4F7C835539DC /* libRNSearchBar.a */,
 				FC990E52CC1446F5BE23B4B7 /* libRNI18n-tvOS.a */,
+				E575A476820B4C1ABD60C1AA /* libRNReactNativeGetMusicFiles.a */,
+				04DF7376C5104F1D8C8B738A /* libRNSound.a */,
+				A5A49FB337C941098A0F3755 /* libRNTrackPlayer.a */,
+				F6F4CA381948476FB3F3C1F9 /* libRNSoundPlayer.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -669,6 +763,301 @@
 				182B795D20D77B7F00E2984A /* libRNVectorIcons.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		18C6FC7A20DA36150072A3D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18C6FC7E20DA36150072A3D1 /* libRNReactNativeGetMusicFiles.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18CE4BB320DA788E0083D32A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4BB720DA788E0083D32A /* libRNSound.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18CE4BF420DA7A8F0083D32A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4BF820DA7A8F0083D32A /* libRNTrackPlayer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18CE4C3920DA82610083D32A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C3D20DA82610083D32A /* libRNSoundPlayer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18CE4C5120DA85040083D32A /* react-native-sound-player */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C5220DA85040083D32A /* android */,
+				18CE4C6320DA85040083D32A /* index.js */,
+				18CE4C6420DA85040083D32A /* ios */,
+				18CE4C6A20DA85040083D32A /* LICENSE */,
+				18CE4C6B20DA85040083D32A /* package.json */,
+				18CE4C6C20DA85040083D32A /* README.md */,
+			);
+			name = "react-native-sound-player";
+			path = "../node_modules/react-native-sound-player";
+			sourceTree = "<group>";
+		};
+		18CE4C5220DA85040083D32A /* android */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C5320DA85040083D32A /* .idea */,
+				18CE4C5920DA85040083D32A /* android.iml */,
+				18CE4C5A20DA85040083D32A /* build.gradle */,
+				18CE4C5B20DA85040083D32A /* local.properties */,
+				18CE4C5C20DA85040083D32A /* src */,
+			);
+			path = android;
+			sourceTree = "<group>";
+		};
+		18CE4C5320DA85040083D32A /* .idea */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C5420DA85040083D32A /* gradle.xml */,
+				18CE4C5520DA85040083D32A /* misc.xml */,
+				18CE4C5620DA85040083D32A /* modules.xml */,
+				18CE4C5720DA85040083D32A /* runConfigurations.xml */,
+				18CE4C5820DA85040083D32A /* workspace.xml */,
+			);
+			path = .idea;
+			sourceTree = "<group>";
+		};
+		18CE4C5C20DA85040083D32A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C5D20DA85040083D32A /* main */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		18CE4C5D20DA85040083D32A /* main */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C5E20DA85040083D32A /* AndroidManifest.xml */,
+				18CE4C5F20DA85040083D32A /* java */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		18CE4C5F20DA85040083D32A /* java */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C6020DA85040083D32A /* rnsoundplayer */,
+			);
+			path = java;
+			sourceTree = "<group>";
+		};
+		18CE4C6020DA85040083D32A /* rnsoundplayer */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C6120DA85040083D32A /* RNSoundPlayerModule.java */,
+				18CE4C6220DA85040083D32A /* RNSoundPlayerPackage.java */,
+			);
+			path = rnsoundplayer;
+			sourceTree = "<group>";
+		};
+		18CE4C6420DA85040083D32A /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C6520DA85040083D32A /* RNSoundPlayer.h */,
+				18CE4C6620DA85040083D32A /* RNSoundPlayer.m */,
+				18CE4C6720DA85040083D32A /* RNSoundPlayer.xcodeproj */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		18CE4C6820DA85040083D32A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C9920DA85040083D32A /* libRNSoundPlayer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18CE4C9D20DA857C0083D32A /* react-native-sound */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4C9E20DA857C0083D32A /* .gitattributes */,
+				18CE4C9F20DA857C0083D32A /* .vscode */,
+				18CE4CA020DA857C0083D32A /* android */,
+				18CE4CAF20DA857C0083D32A /* index.d.ts */,
+				18CE4CB020DA857C0083D32A /* LICENSE */,
+				18CE4CB120DA857C0083D32A /* package.json */,
+				18CE4CB220DA857C0083D32A /* README.md */,
+				18CE4CB320DA857C0083D32A /* RNSound */,
+				18CE4CB620DA857C0083D32A /* RNSound.podspec */,
+				18CE4CB720DA857C0083D32A /* RNSound.xcodeproj */,
+				18CE4CBA20DA857C0083D32A /* sound.js */,
+				18CE4CBB20DA857C0083D32A /* windows */,
+			);
+			name = "react-native-sound";
+			path = "../node_modules/react-native-sound";
+			sourceTree = "<group>";
+		};
+		18CE4C9F20DA857C0083D32A /* .vscode */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = .vscode;
+			sourceTree = "<group>";
+		};
+		18CE4CA020DA857C0083D32A /* android */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CA120DA857C0083D32A /* .gradle */,
+				18CE4CA520DA857C0083D32A /* build.gradle */,
+				18CE4CA620DA857C0083D32A /* src */,
+			);
+			path = android;
+			sourceTree = "<group>";
+		};
+		18CE4CA120DA857C0083D32A /* .gradle */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CA220DA857C0083D32A /* 4.3 */,
+			);
+			path = .gradle;
+			sourceTree = "<group>";
+		};
+		18CE4CA220DA857C0083D32A /* 4.3 */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CA320DA857C0083D32A /* fileChanges */,
+				18CE4CA420DA857C0083D32A /* fileHashes */,
+			);
+			path = 4.3;
+			sourceTree = "<group>";
+		};
+		18CE4CA320DA857C0083D32A /* fileChanges */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = fileChanges;
+			sourceTree = "<group>";
+		};
+		18CE4CA420DA857C0083D32A /* fileHashes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = fileHashes;
+			sourceTree = "<group>";
+		};
+		18CE4CA620DA857C0083D32A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CA720DA857C0083D32A /* main */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		18CE4CA720DA857C0083D32A /* main */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CA820DA857C0083D32A /* AndroidManifest.xml */,
+				18CE4CA920DA857C0083D32A /* java */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		18CE4CA920DA857C0083D32A /* java */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CAA20DA857C0083D32A /* com */,
+			);
+			path = java;
+			sourceTree = "<group>";
+		};
+		18CE4CAA20DA857C0083D32A /* com */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CAB20DA857C0083D32A /* zmxv */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		18CE4CAB20DA857C0083D32A /* zmxv */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CAC20DA857C0083D32A /* RNSound */,
+			);
+			path = zmxv;
+			sourceTree = "<group>";
+		};
+		18CE4CAC20DA857C0083D32A /* RNSound */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CAD20DA857C0083D32A /* RNSoundModule.java */,
+				18CE4CAE20DA857C0083D32A /* RNSoundPackage.java */,
+			);
+			path = RNSound;
+			sourceTree = "<group>";
+		};
+		18CE4CB320DA857C0083D32A /* RNSound */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CB420DA857C0083D32A /* RNSound.h */,
+				18CE4CB520DA857C0083D32A /* RNSound.m */,
+			);
+			path = RNSound;
+			sourceTree = "<group>";
+		};
+		18CE4CB820DA857C0083D32A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CC820DA857C0083D32A /* libRNSound.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18CE4CBB20DA857C0083D32A /* windows */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CBC20DA857C0083D32A /* RNSoundModule */,
+			);
+			path = windows;
+			sourceTree = "<group>";
+		};
+		18CE4CBC20DA857C0083D32A /* RNSoundModule */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CBD20DA857C0083D32A /* RNSoundModule */,
+				18CE4CC520DA857C0083D32A /* RNSoundModule.sln */,
+			);
+			path = RNSoundModule;
+			sourceTree = "<group>";
+		};
+		18CE4CBD20DA857C0083D32A /* RNSoundModule */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CBE20DA857C0083D32A /* project.json */,
+				18CE4CBF20DA857C0083D32A /* Properties */,
+				18CE4CC220DA857C0083D32A /* RNSound.cs */,
+				18CE4CC320DA857C0083D32A /* RNSoundModule.csproj */,
+				18CE4CC420DA857C0083D32A /* RNSoundPackage.cs */,
+			);
+			path = RNSoundModule;
+			sourceTree = "<group>";
+		};
+		18CE4CBF20DA857C0083D32A /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				18CE4CC020DA857C0083D32A /* AssemblyInfo.cs */,
+				18CE4CC120DA857C0083D32A /* RNSoundModule.rd.xml */,
+			);
+			path = Properties;
 			sourceTree = "<group>";
 		};
 		18FB79E020D8E38B006CF205 /* Products */ = {
@@ -721,6 +1110,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18CE4C9D20DA857C0083D32A /* react-native-sound */,
+				18CE4C5120DA85040083D32A /* react-native-sound-player */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 			);
 			name = Frameworks;
@@ -762,6 +1153,10 @@
 				40DACA9133DC46E0B392CAAC /* RNVectorIcons.xcodeproj */,
 				112AD4220A5741C79C11A521 /* RNI18n.xcodeproj */,
 				A73838AAD65C4EABB2BA6361 /* RNSearchBar.xcodeproj */,
+				A67AC243457940CDB2157468 /* RNReactNativeGetMusicFiles.xcodeproj */,
+				5AEBA86948704B42BFD1D6C8 /* RNSound.xcodeproj */,
+				1D2F27E29C434292809DF99F /* RNTrackPlayer.xcodeproj */,
+				02EA4DDC8CE243C0B326799B /* RNSoundPlayer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -997,8 +1392,32 @@
 					ProjectRef = 112AD4220A5741C79C11A521 /* RNI18n.xcodeproj */;
 				},
 				{
+					ProductGroup = 18C6FC7A20DA36150072A3D1 /* Products */;
+					ProjectRef = A67AC243457940CDB2157468 /* RNReactNativeGetMusicFiles.xcodeproj */;
+				},
+				{
 					ProductGroup = 18FB79E020D8E38B006CF205 /* Products */;
 					ProjectRef = A73838AAD65C4EABB2BA6361 /* RNSearchBar.xcodeproj */;
+				},
+				{
+					ProductGroup = 18CE4CB820DA857C0083D32A /* Products */;
+					ProjectRef = 18CE4CB720DA857C0083D32A /* RNSound.xcodeproj */;
+				},
+				{
+					ProductGroup = 18CE4BB320DA788E0083D32A /* Products */;
+					ProjectRef = 5AEBA86948704B42BFD1D6C8 /* RNSound.xcodeproj */;
+				},
+				{
+					ProductGroup = 18CE4C6820DA85040083D32A /* Products */;
+					ProjectRef = 18CE4C6720DA85040083D32A /* RNSoundPlayer.xcodeproj */;
+				},
+				{
+					ProductGroup = 18CE4C3920DA82610083D32A /* Products */;
+					ProjectRef = 02EA4DDC8CE243C0B326799B /* RNSoundPlayer.xcodeproj */;
+				},
+				{
+					ProductGroup = 18CE4BF420DA7A8F0083D32A /* Products */;
+					ProjectRef = 1D2F27E29C434292809DF99F /* RNTrackPlayer.xcodeproj */;
 				},
 				{
 					ProductGroup = 182B795920D77B7F00E2984A /* Products */;
@@ -1077,6 +1496,48 @@
 			fileType = archive.ar;
 			path = libRNVectorIcons.a;
 			remoteRef = 182B795C20D77B7F00E2984A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18C6FC7E20DA36150072A3D1 /* libRNReactNativeGetMusicFiles.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNReactNativeGetMusicFiles.a;
+			remoteRef = 18C6FC7D20DA36150072A3D1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18CE4BB720DA788E0083D32A /* libRNSound.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSound.a;
+			remoteRef = 18CE4BB620DA788E0083D32A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18CE4BF820DA7A8F0083D32A /* libRNTrackPlayer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNTrackPlayer.a;
+			remoteRef = 18CE4BF720DA7A8F0083D32A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18CE4C3D20DA82610083D32A /* libRNSoundPlayer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSoundPlayer.a;
+			remoteRef = 18CE4C3C20DA82610083D32A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18CE4C9920DA85040083D32A /* libRNSoundPlayer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSoundPlayer.a;
+			remoteRef = 18CE4C9820DA85040083D32A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		18CE4CC820DA857C0083D32A /* libRNSound.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSound.a;
+			remoteRef = 18CE4CC720DA857C0083D32A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		18FB79E420D8E38B006CF205 /* libRNSearchBar.a */ = {
@@ -1504,13 +1965,16 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-search-bar/ios",
+					"$(SRCROOT)/../node_modules/react-native-get-music-files/ios",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-sound-player/ios",
 				);
 				INFOPLIST_FILE = Demo2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1534,13 +1998,16 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-search-bar/ios",
+					"$(SRCROOT)/../node_modules/react-native-get-music-files/ios",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-sound-player/ios",
 				);
 				INFOPLIST_FILE = Demo2Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1566,6 +2033,10 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-search-bar/ios",
+					"$(SRCROOT)/../node_modules/react-native-get-music-files/ios",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-sound-player/ios",
 				);
 				INFOPLIST_FILE = Demo2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1590,6 +2061,10 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-search-bar/ios",
+					"$(SRCROOT)/../node_modules/react-native-get-music-files/ios",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-sound-player/ios",
 				);
 				INFOPLIST_FILE = Demo2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1621,12 +2096,15 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-search-bar/ios",
+					"$(SRCROOT)/../node_modules/react-native-get-music-files/ios",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-sound-player/ios",
 				);
 				INFOPLIST_FILE = "Demo2-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1661,12 +2139,15 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-search-bar/ios",
+					"$(SRCROOT)/../node_modules/react-native-get-music-files/ios",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-sound-player/ios",
 				);
 				INFOPLIST_FILE = "Demo2-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1699,12 +2180,15 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-search-bar/ios",
+					"$(SRCROOT)/../node_modules/react-native-get-music-files/ios",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-sound-player/ios",
 				);
 				INFOPLIST_FILE = "Demo2-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1737,12 +2221,15 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-i18n/ios",
 					"$(SRCROOT)/../node_modules/react-native-search-bar/ios",
+					"$(SRCROOT)/../node_modules/react-native-get-music-files/ios",
+					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
+					"$(SRCROOT)/../node_modules/react-native-sound-player/ios",
 				);
 				INFOPLIST_FILE = "Demo2-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
