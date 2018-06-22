@@ -114,18 +114,30 @@ const App = createBottomTabNavigator({
 //     initialRouteName: 'Screen1'
 //   })
 
-
-const switchApp = createSwitchNavigator({
-  Splash: {
-    screen: Splash, navigationOptions: {
-      header: null
-    }
-  },
-  Root: {
-    screen: App, navigationOptions: {
+const switchApp = createSwitchNavigator
+if(Platform.OS == 'ios')
+{
+   switchApp = createSwitchNavigator({
+    Root: {
+      screen: App, navigationOptions: {
+      }
 
     }
+  })
+}
+else{
+   switchApp = createSwitchNavigator({
+    Splash: {
+      screen: Splash, navigationOptions: {
+        header: null
+      }
+    },
+    Root: {
+      screen: App, navigationOptions: {
+  
+      }
+      }
+  })
+}
 
-  }
-})
 export default switchApp;
