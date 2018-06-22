@@ -16,6 +16,7 @@
     "react-native-elements": "^0.19.1",
     "react-native-get-music-files": "^2.1.0",
     "react-native-i18n": "^2.0.12",
+    "react-native-loading-spinner-overlay": "^0.5.2",
     "react-native-material-ui": "^1.22.3",
     "react-native-music-player-service": "^0.1.4-beta",
     "react-native-search-bar": "^3.4.2",
