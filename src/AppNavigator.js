@@ -12,6 +12,8 @@ import Screen3 from './Screens/Screen3';
 import Screen4 from './Screens/Screen4';
 import Splash from './Screens/Splash';
 import CollectionScreen from './Screens/CollectionScreen';
+import {Platform} from 'react-native';
+
 
 
 import { Icon } from 'react-native-elements'
