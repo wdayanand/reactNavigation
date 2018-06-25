@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import { createBottomTabNavigator, createSwitchNavigator, createStackNavigator } from 'react-navigation';
 import Screen1 from './Screens/Screen1';
-import Screen2 from './Screens/Screen2';
+import Search from './Screens/Search';
 import Screen3 from './Screens/Screen3';
 import Screen4 from './Screens/Screen4';
 import Splash from './Screens/Splash';
@@ -55,7 +55,7 @@ const App = createBottomTabNavigator({
     }
   },
   Screen3: {
-    screen: Screen3, navigationOptions: {
+    screen: Search, navigationOptions: {
       title: 'Bookmark',
       tabBarIcon: ({tintColor}) => <Icon
         name='bookmark'  color={tintColor}  />

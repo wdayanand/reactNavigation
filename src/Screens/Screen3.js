@@ -39,6 +39,7 @@ export default class Screen3 extends Component {
       payload => {
         this.setState({ visible: true })
         getCategory()
+          .then((response) => response.json())
           .then((responseJson) => {
             this.setState({ visible: false })
             console.info(responseJson);
