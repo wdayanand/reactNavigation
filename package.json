@@ -23,10 +23,9 @@
     "react-native-search-bar": "^3.4.2",
     "react-native-segmented-control-tab": "^3.2.2",
     "react-native-sound": "^0.10.9",
-    "react-native-sound-player": "^0.3.0",
-    "react-native-track-player": "^0.2.4",
     "react-native-vector-icons": "^4.6.0",
-    "react-navigation": "^2.1.0"
+    "react-navigation": "^2.1.0",
+    "rn-sound": "^0.8.1"
   },
   "devDependencies": {
     "babel-jest": "23.0.1",

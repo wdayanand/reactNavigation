@@ -18,8 +18,11 @@ import {
 import SegmentedControlTab from 'react-native-segmented-control-tab'
 
 export default class App extends Component {
+
+  
   constructor(props) {
     super(props)
+    
     this.state = {
       title1: 'title 1',
       title2: 'sub title',
@@ -36,34 +39,37 @@ export default class App extends Component {
   }
 
   handleIndexChange = (index) => {
+   
     if(index == 1)
     {
-      MusicFiles.getAll({
-        blured : true, // works only when 'cover' is set to true
-        artist : true,
-        duration : true, //default : true
-        cover : true, //default : true,
-        genre : true,
-        title : true,
-        cover : true,
-        path:true,
-        SongID: true,
-        Url:true,
-        minimumSongDuration : 10000 ,// get songs bigger than 10000 miliseconds duration,
-        fields : ['title','albumTitle','genre','lyrics','artwork','duration','blured','artist','cover','path','url'] // for iOs Version
-    }).then(tracks =>
+      const { navigate } = this.props.navigation
+      navigate("Player", {})
+    //   MusicFiles.getAll({
+    //     blured : true, // works only when 'cover' is set to true
+    //     artist : true,
+    //     duration : true, //default : true
+    //     cover : true, //default : true,
+    //     genre : true,
+    //     title : true,
+    //     cover : true,
+    //     path:true,
+    //     SongID: true,
+    //     Url:true,
+    //     minimumSongDuration : 10000 ,// get songs bigger than 10000 miliseconds duration,
+    //     fields : ['title','albumTitle','genre','lyrics','artwork','duration','blured','artist','cover','path','url'] // for iOs Version
+    // }).then(tracks =>
       
-      {
-        // do your stuff...
-        this.setState({
-          ...this.state,array_Localmusic:tracks
-        })
+    //   {
+    //     // do your stuff...
+    //     this.setState({
+    //       ...this.state,array_Localmusic:tracks
+    //     })
 
         
-    }).catch(error => 
-      {
-        // catch the error
-    })
+    // }).catch(error => 
+    //   {
+    //     // catch the error
+    // })
     }
     this.setState({
       ...this.state,

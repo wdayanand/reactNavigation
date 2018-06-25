@@ -12,10 +12,8 @@ import Screen3 from './Screens/Screen3';
 import Screen4 from './Screens/Screen4';
 import Splash from './Screens/Splash';
 import CollectionScreen from './Screens/CollectionScreen';
+import Player from './Screens/Player'
 import {Platform} from 'react-native';
-
-
-
 import { Icon } from 'react-native-elements'
 import { TouchableHighlight,Image, BackHandler } from 'react-native'
 
@@ -31,13 +29,17 @@ const playerScreenStack = createStackNavigator({
 });
 const playerListStack = createStackNavigator({
   PlayerListScreen:{
+
     screen:CollectionScreen,navigationOptions:({navigation,goBack}) =>
       ({
         header:null,
-        
-
     }),
-  }
+    screen:Player,navigationOptions:({navigation,goBack}) =>
+    ({
+  }),
+  },
+
+
 });
 
 
@@ -63,7 +65,8 @@ const App = createBottomTabNavigator({
         name='bookmark'  color={tintColor}  />
     }
   }
-}, {
+}, 
+{
     tabBarOptions: {
       activeTintColor: 'white',
       style: {
