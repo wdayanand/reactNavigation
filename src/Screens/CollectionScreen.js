@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import CarouselPager from 'react-native-carousel-pager';
+
 import { Dial } from 'react-native-dial';
+//import Dial from '../Dial.js'
 import { Toolbar } from 'react-native-material-ui';
 import { BackHandler } from 'react-native'
+import MusicFiles from 'react-native-get-music-files';
+
 
 import {
   StyleSheet, Alert,
   Text,
   Button,
   View,
-  Image, TouchableOpacity, alert, Dimensions
+  Image, TouchableOpacity, alert, Dimensions,ImageBackground
 } from 'react-native';
 import SegmentedControlTab from 'react-native-segmented-control-tab'
-
-
 
 export default class App extends Component {
   constructor(props) {
@@ -22,17 +24,47 @@ export default class App extends Component {
       title1: 'title 1',
       title2: 'sub title',
       array_music: ["Music 1", "Music 2", "Music 3", "Music 4", "Music 5", "Music 6"],
+      array_MusicImages:["../assets/images/Music.png","../assets/images/Music.png","../assets/images/Music.png","../assets/images/Music.png","../assets/images/Music.png","../assets/images/Music.png"],
       value: '0',
       angle: 0,
-      page: 0
+      page: 0,
+      array_Localmusic:[]
     }
   }
-
   state = {
     selected: 0
   }
 
   handleIndexChange = (index) => {
+    if(index == 1)
+    {
+      MusicFiles.getAll({
+        blured : true, // works only when 'cover' is set to true
+        artist : true,
+        duration : true, //default : true
+        cover : true, //default : true,
+        genre : true,
+        title : true,
+        cover : true,
+        path:true,
+        SongID: true,
+        Url:true,
+        minimumSongDuration : 10000 ,// get songs bigger than 10000 miliseconds duration,
+        fields : ['title','albumTitle','genre','lyrics','artwork','duration','blured','artist','cover','path','url'] // for iOs Version
+    }).then(tracks =>
+      
+      {
+        // do your stuff...
+        this.setState({
+          ...this.state,array_Localmusic:tracks
+        })
+
+        
+    }).catch(error => 
+      {
+        // catch the error
+    })
+    }
     this.setState({
       ...this.state,
       selectedIndex: index,
@@ -87,35 +119,28 @@ export default class App extends Component {
 
   onValueChange(num) {
     console.info(""+num)
-    if (num - this.state.angle >= 45) {
-      if (num - this.state.angle > 0) {
+    var dif = this.state.angle - num
+    if (Math.abs(dif) >= 45) {
+      if (dif > 0) {
         if (this.state.array_music.length >= this.state.page + 1) {
           this.carousel.goToPage(this.state.page + 1);
           this.state.page = this.state.page + 1
           let authToken = this.state.array_music[this.state.page];
-          this.setState(
-            {
-              title1: this.state.page.toString() + " " + authToken,
-              title2: (num - this.state.angle).toString()
-            })
+          // this.setState(
+          //   {
+          //     title1: this.state.page.toString() + " " + authToken,
+          //     title2: (num - this.state.angle).toString()
+          //   })
         }
       }
-    }
-    else {
-      if (num - this.state.angle <= -45) {
-        if (this.state.page - 1 > 0) {
-          this.state.page = this.state.page - 1
+      else if (dif<0)
+      {
+        this.state.page = this.state.page - 1
           this.carousel.goToPage(this.state.page);
           let authToken = this.state.array_music[this.state.page];
-          this.setState(
-            {
-              title1: this.state.page.toString() + " " + authToken,
-              title2: (num - this.state.angle).toString()
-            })
-
-        }
       }
     }
+    
 
 
     this.state.angle = num
@@ -147,10 +172,12 @@ export default class App extends Component {
 
 
         <View style={style.mainContainer}>
-          <CarouselPager onPageChange={(page) => this.onPageChange(page)} ref={ref => this.carousel = ref} initialPage={2} pageStyle={{ backgroundColor: '#fff' }}>
+          <CarouselPager onPageChange={(page) => this.onPageChange(page)} ref={ref => this.carousel = ref} initialPage={this.state.page} pageStyle={{ backgroundColor: '#fff' }}>
             {musicArray.map((item, key) =>
               (
-                <View key={key}><Text>{item}</Text></View>
+               // <View key={key}><Text>{item}</Text></View>
+               <View key={key} style={{alignItems: 'center',}}><ImageBackground style={{flex:1,width:120,height:120}} source={require("../assets/images/Music.png")}/><Text style={{marginBottom:10,color:'black',width:50}}>item</Text></View>
+
               
               )
             )}
@@ -171,9 +198,8 @@ export default class App extends Component {
 
                 <Dial
                   style={{ width: 120, height: 120, marginBottom: 30, backgroundColor: 'gray' }}
-                  maximumValue={100}
-                  minimumValue={0}
-                  step={10}
+                  maximumValue={3600}
+                  step={360/50}
                   onValueChange={num => this.onValueChange(num)}>
                   <Image style={{ width: 120, height: 120 }} source={require('../assets/images/img_Circle.png')} />
                 </Dial>

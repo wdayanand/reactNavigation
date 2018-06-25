@@ -12,6 +12,8 @@ import Screen3 from './Screens/Screen3';
 import Screen4 from './Screens/Screen4';
 import Splash from './Screens/Splash';
 import CollectionScreen from './Screens/CollectionScreen';
+import {Platform} from 'react-native';
+
 
 
 import { Icon } from 'react-native-elements'
@@ -112,18 +114,30 @@ const App = createBottomTabNavigator({
 //     initialRouteName: 'Screen1'
 //   })
 
-
-const switchApp = createSwitchNavigator({
-  Splash: {
-    screen: Splash, navigationOptions: {
-      header: null
-    }
-  },
-  Root: {
-    screen: App, navigationOptions: {
+const switchApp = createSwitchNavigator
+if(Platform.OS == 'ios')
+{
+   switchApp = createSwitchNavigator({
+    Root: {
+      screen: App, navigationOptions: {
+      }
 
     }
+  })
+}
+else{
+   switchApp = createSwitchNavigator({
+    Splash: {
+      screen: Splash, navigationOptions: {
+        header: null
+      }
+    },
+    Root: {
+      screen: App, navigationOptions: {
+  
+      }
+      }
+  })
+}
 
-  }
-})
 export default switchApp;
