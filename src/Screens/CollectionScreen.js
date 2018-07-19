@@ -43,7 +43,7 @@ export default class App extends Component {
     if(index == 1)
     {
       const { navigate } = this.props.navigation
-      navigate("Player", {})
+      navigate("SearchResult", {})
     //   MusicFiles.getAll({
     //     blured : true, // works only when 'cover' is set to true
     //     artist : true,

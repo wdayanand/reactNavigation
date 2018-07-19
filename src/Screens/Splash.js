@@ -23,7 +23,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Button title='Splash' style={styles.welcome} onPress={() => this.onClick()}>
-          Screen1
+          Home
         </Button>
 
       </View>

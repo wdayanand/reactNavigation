@@ -6,80 +6,151 @@
 
 import React, { Component } from 'react';
 import { createBottomTabNavigator, createSwitchNavigator, createStackNavigator } from 'react-navigation';
-import Screen1 from './Screens/Screen1';
-import Screen2 from './Screens/Screen2';
+import Home from './Screens/Home';
 import Screen3 from './Screens/Screen3';
 import Screen4 from './Screens/Screen4';
+import Discover from './Screens/Discover';
+import Library from './Screens/Library';
 import Splash from './Screens/Splash';
+import SearchResult from './Screens/SearchResult'
 import CollectionScreen from './Screens/CollectionScreen';
 import PlayMusic from './Screens/PlayMusic';
-import Player from './Screens/Player';
-import {Platform} from 'react-native';
-import { Icon } from 'react-native-elements'
-import { TouchableHighlight,Image, BackHandler } from 'react-native'
+import { Platform } from 'react-native';
+import { Icon, Button } from 'react-native-elements'
+import { TouchableHighlight, Image, BackHandler, View, ImageBackground, Text } from 'react-native'
 
 console.disableYellowBox = true;
 
+
+
 const playerScreenStack = createStackNavigator({
   PlayerScreen: {
-    screen: Screen1, navigationOptions: ({ navigation, goBack }) =>
+    screen: Home, navigationOptions: ({ navigation, goBack }) =>
       ({
-        header:null
+        header: null
       }),
   }
 });
 const playerListStack = createStackNavigator({
-  PlayerListScreen:{
 
-    screen:CollectionScreen,navigationOptions:({navigation,goBack}) =>
+
+  CollectionScreen: {
+    screen: CollectionScreen, navigationOptions: ({ navigation, goBack }) =>
       ({
-        header:null,
-    }),
-    screen:Player,navigationOptions:({navigation,goBack}) =>
-    ({
-  }),
+        header: null
+      })
   },
+  SearchResult: {
+    screen: SearchResult, navigationOptions: ({ navigation, goBack }) =>
+      ({
+        header: ( /* Your custom header */
+          <View
+            style={{
+              flexDirection: 'row',
+              height: 64,
+              marginTop: 20,/* only for IOS to give StatusBar Space */
+              backgroundColor: '#262626',
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }}
+          >
+            <View style={{justifyContent: 'flex-start'}}><TouchableHighlight style={{
+               width: 10, height: 10,color:'gray'
+            }}
+            onPress={() => navigation.goBack()
+            }
+              title="fgfdgfdg"
+              accessibilityLabel="Learn more about this purple button"
+
+            //  backgroundColor='red'
+            >
+              <Image
+        source={require('./assets/images/left-arrow-key.png')}
+      />
+            </TouchableHighlight>
+            </View>
+
+            <View style={{
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+              <Text style={{ color: '#B9D3EE', textAlign: 'center' }}>P o d s o u r c e</Text>
+            </View>
+            <View style={{justifyContent: 'flex-end',width:25}}>
+            </View>
+
+
+          </View>
+        )
+
+      })
+  }
 
 
 });
 
 
 const App = createBottomTabNavigator({
-  Screen1: {
+  Home: {
     screen: playerScreenStack, navigationOptions: {
-      title: 'Options',
-      tabBarIcon: ({tintColor}) => <Icon
-        name='more-horiz'  color={tintColor}  />
+      title: 'Home',
+      tabBarIcon: ({ tintColor }) => <Icon
+        name='more-horiz' color={tintColor} />
     }
   },
-  Screen2: {
-    screen: CollectionScreen, navigationOptions: {
-      title: 'Collection',
-      tabBarIcon: ({tintColor}) => <Icon
-        name='collections'  color={tintColor} />
+  CollectionScreen: {
+    screen: playerListStack
+    , navigationOptions: {
+      title: 'Stumble',
+      tabBarIcon: () => <Image source={require('./assets/images/magicLamp.png')} style={{ width: 30, height: 30 }} />
+
+
     }
   },
   Screen3: {
     screen: Screen3, navigationOptions: {
       title: 'Bookmark',
-      tabBarIcon: ({tintColor}) => <Icon
-        name='bookmark'  color={tintColor}  />
+
+
+      tabBarIcon: ({ tintColor }) => <Icon
+        name='bookmark' color={tintColor} />
     }
-  }
-}, 
-{
+  },
+  Library:
+    {
+      screen: Library, navigationOptions:
+        {
+
+          title: 'Library',
+          backgroundColor: 'red',
+          tabBarIcon: () => <Image source={require('./assets/images/books.png')} style={{ width: 25, height: 25 }} />
+        }
+    },
+  Discover:
+    {
+      screen: Discover, navigationOptions:
+        {
+          title: 'Discover',
+          tabBarIcon: () => <Image source={require('./assets/images/world.png')} style={{ width: 25, height: 25 }} />
+        }
+    }
+},
+  {
     tabBarOptions: {
-      activeTintColor: 'white',
+
+      activeTintColor: 'red',
+      inactiveTintColor: 'white',
+
       style: {
-        backgroundColor: '#3D4246'
+        backgroundColor: '#696969'
       }
     },
     headerMode: 'screen',
     backBehavior: 'none',
-    initialRouteName: 'Screen1'
+    initialRouteName: 'Home'
   })
 // const App = createBottomTabNavigator({
-//   Screen1:
+//   Home:
 //   {
 //     screen:playerScreenStack,navigationOptions:{
 //       title:'Option',
@@ -90,7 +161,7 @@ const App = createBottomTabNavigator({
 //   }
 //   ,
 
-//   Screen2:{
+//   CollectionScreen:{
 //     screen:playerListStack,navigationOptions:{
 //       title:'Collection',
 //       tabBarIcon:()=><Image
@@ -115,21 +186,20 @@ const App = createBottomTabNavigator({
 //     },
 //     headerMode: 'screen',
 //     backBehavior: 'none',
-//     initialRouteName: 'Screen1'
+//     initialRouteName: 'Home'
 //   })
 
 var switchApp = createSwitchNavigator
-if(Platform.OS == 'ios')
-{
-   switchApp = createSwitchNavigator({
+if (Platform.OS == 'ios') {
+  switchApp = createSwitchNavigator({
     Root: {
       screen: App, navigationOptions: {
       }
     }
   })
 }
-else{
-   switchApp = createSwitchNavigator({
+else {
+  switchApp = createSwitchNavigator({
     Splash: {
       screen: Splash, navigationOptions: {
         header: null
@@ -137,9 +207,9 @@ else{
     },
     Root: {
       screen: App, navigationOptions: {
-  
+
       }
-      }
+    }
   })
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from "react-native-slider";
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Text, Image, TouchableOpacity,Alert } from 'react-native'
 import { scale, moderateScale, verticalScale } from '../utility/scaling';
 import Sound from 'react-native-sound';
 const soundImg = require('../assets/images/play-button.png');
@@ -18,8 +18,8 @@ export default class Basic extends React.Component {
                     url: 'https://api.soundcloud.com/tracks/230277131/stream?client_id=3ed8237e8a4bfc63db818a732c95bc38',
                 },
                 {
-                    title: 'aac remote download',
-                    url: 'http://searchgurbani.com/audio/sggs/1.mp3',
+                    title: 'mp3 remote download',
+                    url: 'https://soundcloud.com/latest-bollywood-songs/dil-kare-ho-mann-jahaan-atif-aslam',
                 },
                 {
                     title: 'mp3 remote download',

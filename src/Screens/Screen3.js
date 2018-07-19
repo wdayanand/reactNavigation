@@ -115,7 +115,7 @@ export default class Screen3 extends Component {
   }
   onClick() {
     const { navigate } = this.props.navigation
-    navigate("Screen1", {})
+    navigate("Home", {})
 
   }
   _onItemClick = (selectedItem) => {
@@ -125,7 +125,7 @@ export default class Screen3 extends Component {
   };
   _onButtonClick = () => {
     const { navigate } = this.props.navigation
-    navigate("Screen1", {})
+    navigate("Home", {})
   };
   onRightElementPress = () => {
     console.log('log', 'asds')
