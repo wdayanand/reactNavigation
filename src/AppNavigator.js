@@ -12,7 +12,8 @@ import Screen3 from './Screens/Screen3';
 import Screen4 from './Screens/Screen4';
 import Splash from './Screens/Splash';
 import CollectionScreen from './Screens/CollectionScreen';
-import Player from './Screens/Player'
+import PlayMusic from './Screens/PlayMusic';
+import Player from './Screens/Player';
 import {Platform} from 'react-native';
 import { Icon } from 'react-native-elements'
 import { TouchableHighlight,Image, BackHandler } from 'react-native'
@@ -52,7 +53,7 @@ const App = createBottomTabNavigator({
     }
   },
   Screen2: {
-    screen: playerListStack, navigationOptions: {
+    screen: CollectionScreen, navigationOptions: {
       title: 'Collection',
       tabBarIcon: ({tintColor}) => <Icon
         name='collections'  color={tintColor} />
@@ -117,14 +118,13 @@ const App = createBottomTabNavigator({
 //     initialRouteName: 'Screen1'
 //   })
 
-const switchApp = createSwitchNavigator
+var switchApp = createSwitchNavigator
 if(Platform.OS == 'ios')
 {
    switchApp = createSwitchNavigator({
     Root: {
       screen: App, navigationOptions: {
       }
-
     }
   })
 }

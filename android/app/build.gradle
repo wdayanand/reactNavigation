@@ -94,17 +94,17 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.demo2"
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         ndk {
-            abiFilters "armeabi-v7a", "x86","armeabi"
+            abiFilters "armeabi-v7a", "x86"
         }
     }
     splits {
@@ -112,7 +112,7 @@ android {
             reset()
             enable enableSeparateBuildPerCPUArchitecture
             universalApk false  // If true, also generate a universal APK
-            include "armeabi-v7a", "x86","armeabi"
+            include "armeabi-v7a", "x86"
         }
     }
     buildTypes {
@@ -137,14 +137,12 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-sound-player')
-    compile project(':react-native-track-player')
     compile project(':react-native-sound')
-    compile project(':react-native-get-music-files')
-    compile project(':react-native-i18n')
     compile project(':react-native-vector-icons')
+    compile project(':react-native-i18n')
+    compile project(':react-native-get-music-files')
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:23.0.1"
+    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     compile "com.facebook.react:react-native:+"  // From node_modules
 }
 

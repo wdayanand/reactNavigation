@@ -123,34 +123,37 @@ export default class App extends Component {
     );
   }
 
-  onValueChange(num) {
-    console.info(""+num)
+  onValueChange(num,radius) {
     var dif = this.state.angle - num
-    if (Math.abs(dif) >= 45) {
-      if (dif > 0) {
-        if (this.state.array_music.length >= this.state.page + 1) {
-          this.carousel.goToPage(this.state.page + 1);
-          this.state.page = this.state.page + 1
-          let authToken = this.state.array_music[this.state.page];
-          // this.setState(
-          //   {
-          //     title1: this.state.page.toString() + " " + authToken,
-          //     title2: (num - this.state.angle).toString()
-          //   })
-        }
-      }
-      else if (dif<0)
-      {
-        this.state.page = this.state.page - 1
-          this.carousel.goToPage(this.state.page);
-          let authToken = this.state.array_music[this.state.page];
-      }
+    console.info("num : "+num , " radius : "+radius , " dif : "+dif) 
+    if (Math.abs(dif) >= 90){// && Math.abs(dif) <= 100) {
+    if (dif < 0) {
+    console.info("Next : "+this.state.page)
+    if (this.state.page <= this.state.array_music.length) {
+    this.carousel.goToPage(this.state.page + 1);
+    this.setState({page: this.state.page + 1})
+    let authToken = this.state.array_music[this.state.page];
     }
+    }
+    else if (dif > 0)
+    {
+    console.info("Prev : "+this.state.page)
+    if((this.state.page) < 0)
+    {
+    this.setState({page: 0})
+    this.carousel.goToPage(0);
+    }
+    else
+    {
+    this.setState({page: this.state.page - 1})
+    this.carousel.goToPage(this.state.page - 1);
+    }
+    let authToken = this.state.array_music[this.state.page];
+    }
+    this.setState({angle:num})
     
-
-
-    this.state.angle = num
-  }
+    }
+    }
 
   render() {
     var musicArray = this.state.array_music
