@@ -14,6 +14,8 @@ import Library from './Screens/Library';
 import Splash from './Screens/Splash';
 import SearchResult from './Screens/SearchResult'
 import CollectionScreen from './Screens/CollectionScreen';
+import EpisodesShows from './Screens/EpisodesShows'; //Rahul
+
 import PlayMusic from './Screens/PlayMusic';
 import { Platform } from 'react-native';
 import { Icon, Button } from 'react-native-elements'
@@ -22,6 +24,20 @@ import { TouchableHighlight, Image, BackHandler, View, ImageBackground, Text } f
 console.disableYellowBox = true;
 
 
+const libraryepisodesStack = createStackNavigator({
+  Library: {
+    screen: Library, navigationOptions: ({ navigation, goBack }) =>
+      ({
+        header: null
+      }),
+  },
+  EpisodesShows: {
+    screen: EpisodesShows, navigationOptions: ({ navigation, goBack }) =>
+      ({
+        
+      }),
+  }
+});
 
 const playerScreenStack = createStackNavigator({
   PlayerScreen: {
@@ -118,7 +134,7 @@ const App = createBottomTabNavigator({
   },
   Library:
     {
-      screen: Library, navigationOptions:
+      screen: libraryepisodesStack, navigationOptions:
         {
 
           title: 'Library',
