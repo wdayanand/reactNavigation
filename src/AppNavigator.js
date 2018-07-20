@@ -10,6 +10,7 @@ import Home from './Screens/Home';
 import Screen3 from './Screens/Screen3';
 import Screen4 from './Screens/Screen4';
 import Discover from './Screens/Discover';
+import ShowsTitle from './Screens/ShowsTitle';
 import Library from './Screens/Library';
 import Splash from './Screens/Splash';
 import SearchResult from './Screens/SearchResult'
@@ -90,6 +91,64 @@ const playerListStack = createStackNavigator({
 });
 
 
+
+const DiscoveryList = createStackNavigator({
+  Discover: {
+    screen: Discover, navigationOptions: ({ navigation, goBack }) =>
+      ({
+        header: null
+      })
+  },
+  ShowsTitle: {
+    screen: ShowsTitle, navigationOptions: ({ navigation, goBack }) =>
+      ({
+      //   header: ( /* Your custom header */
+      //     <View
+      //       style={{
+      //         flexDirection: 'row',
+      //         height: 64,
+      //         marginTop: 20,/* only for IOS to give StatusBar Space */
+      //         backgroundColor: '#262626',
+      //         justifyContent: 'space-between',
+      //         alignItems: 'center'
+      //       }}
+      //     >
+      //       <View style={{justifyContent: 'flex-start'}}><TouchableHighlight style={{
+      //          width: 10, height: 10,color:'gray'
+      //       }}
+      //       onPress={() => navigation.goBack()
+      //       }
+      //         title="fgfdgfdg"
+      //         accessibilityLabel="Learn more about this purple button"
+
+      //       //  backgroundColor='red'
+      //       >
+      //         <Image
+      //   source={require('./assets/images/left-arrow-key.png')}
+      // />
+      //       </TouchableHighlight>
+      //       </View>
+
+      //       <View style={{
+      //         justifyContent: 'center',
+      //         alignItems: 'center'
+      //       }}>
+      //         <Text style={{ color: '#B9D3EE', textAlign: 'center' }}>P o d s o u r c e</Text>
+      //       </View>
+      //       <View style={{justifyContent: 'flex-end',width:25}}>
+      //       </View>
+
+
+      //     </View>
+      //   )
+
+      })
+  }
+
+
+});
+
+
 const App = createBottomTabNavigator({
   Home: {
     screen: playerScreenStack, navigationOptions: {
@@ -128,7 +187,7 @@ const App = createBottomTabNavigator({
     },
   Discover:
     {
-      screen: Discover, navigationOptions:
+      screen: DiscoveryList, navigationOptions:
         {
           title: 'Discover',
           tabBarIcon: () => <Image source={require('./assets/images/world.png')} style={{ width: 25, height: 25 }} />
