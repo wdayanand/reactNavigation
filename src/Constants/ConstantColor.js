@@ -15,7 +15,8 @@ module.exports = {
         COL_0_49_125 : 'rgba(0,49,125,1)',
         COL_10_14_25 : 'rgba(10,14,25,1)',      
         COL_16_20_30 : 'rgba(16,20,30,1)',  
-        COL_pastel_blue:	'#C1F0F6'	    
+        COL_pastel_blue:	'#C1F0F6'	,
+        COL_WHITE_CLR: '#FFFFFF'    
   
   };
 

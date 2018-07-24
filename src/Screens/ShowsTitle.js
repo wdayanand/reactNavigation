@@ -8,9 +8,9 @@ const Color = require('../Constants/ConstantColor');
 
 
 var data = [
-    { "id": 1, "name": "Charil", "last_message": "exploit proactive functionalities", "picture": "url", "time": "29/10/2016" },
-    { "id": 1, "name": "Charil", "last_message": "exploit proactive functionalities", "picture": "url", "time": "29/10/2016" },
-    { "id": 1, "name": "Charil", "last_message": "exploit proactive functionalities", "picture": "url", "time": "29/10/2016" },
+    { "id": 1, "name": "Episode name", "last_message": "One sentence description.", "picture": "url", "time": "75 Minute" },
+    { "id": 1, "name": "Episode name", "last_message": "One sentence description.", "picture": "url", "time": "75 Minute" },
+    { "id": 1, "name": "Episode name", "last_message": "One sentence description.", "picture": "url", "time": "75 Minute" },
 ];
 
 let deviceWidth = Dimensions.get('window').width
@@ -111,13 +111,37 @@ export default class ShowTitleApp extends React.Component {
                         </Text>
                     </ViewMoreText>
                     <View style={styles_View.sepratorView}></View>
-                    <View style={{backgroundColor:'red',height:100}}>
-                    <FlatList style={{backgroundColor:Color.COL_DarkYellow}}
+                    <View style={{height:100}}>
+                    <FlatList style={{backgroundColor:Color.TRANSPARENT}}
                        data={data}
                        renderItem={({item}) =>
-                       <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                           <View style={{height:150,backgroundColor:'gray',width:deviceWidth-150,paddingTop:10}}><Text>{item.id}</Text></View>
-                           <View style={{height:150,backgroundColor:'red',width:150,paddingTop:10}}><Text>{item.id}</Text></View>
+                       <View style={{flexDirection:'row',justifyContent:'space-between',alignItems: 'center'}}>
+                           <View style={{height:100,width:deviceWidth-150,justifyContent:'center',paddingLeft:10}}>
+                           <Text style={{color: Color.COL_WHITE_CLR,fontSize: 25}} >{item.name}</Text>
+                           <Text style={{color: Color.COL_pastel_blue,fontSize: 20}}>{item.last_message}</Text>
+                           <Text style={{color: Color.COL_DarkYellow,fontSize: 15}}>{item.time}</Text>
+                           </View>
+
+                           <View style={{height:100 ,width:150,flexDirection:'row',alignItems: 'center',justifyContent:'space-between'}}>
+                           <TouchableOpacity style={{ width: 10, height: 10,alignItems: 'flex-start' ,paddingLeft:10}}>
+                            <Image
+                                style={styles.button}
+                                source={require('../assets/images/dotdot.png')}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ width: 10, height: 10 ,alignItems: 'center' }}>
+                            <Image
+                                style={styles.button}
+                                source={require('../assets/images/like.png')}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ width: 10, height: 10 ,alignItems: 'flex-end',paddingRight:10}}>
+                            <Image
+                                style={styles.button}
+                                source={require('../assets/images/dropDown.png')}
+                            />
+                        </TouchableOpacity>
+                           </View>
                        </View>
                        //
                     }
@@ -175,7 +199,7 @@ const Separator = () => (
 const styles = StyleSheet.create(
     {
         separatorContainer: {
-            height: 2,
+            height: 1,
             backgroundColor: 'white',
             },
         tabsContainerStyle: {
