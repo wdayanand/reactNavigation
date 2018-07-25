@@ -32,7 +32,7 @@ export default class ShowTitleApp extends React.Component {
 
 
     static navigationOptions = ({ navigation }) => ({
-        headerTintColor: Color.COL_WHITE_CLR,
+        headerTintColor: Color.WHITE,
         headerStyle: {
             backgroundColor: Color.COL_34_34_34npm 
         },
@@ -148,7 +148,7 @@ export default class ShowTitleApp extends React.Component {
                             renderItem={({ item }) =>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <View style={{ height: 100, width: deviceWidth - 150, justifyContent: 'center', paddingLeft: 10 }}>
-                                        <Text style={{ color: Color.COL_WHITE_CLR, fontSize: 20 }} >{item.name}</Text>
+                                        <Text style={{ color: Color.WHITE, fontSize: 20 }} >{item.name}</Text>
                                         <Text style={{ color: Color.COL_pastel_blue, fontSize: 15 }}>{item.last_message}</Text>
                                         <Text style={{ color: Color.COL_DarkYellow, fontSize: 12 }}>{item.time}</Text>
                                     </View>
