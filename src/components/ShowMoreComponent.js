@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     top: 0,
   },
   viewMoreText: {
-    color: Color.COL_DarkYellow,
+    color: Color.COL_172_139_82,
     paddingLeft: 10,
   },
   transparent: {
