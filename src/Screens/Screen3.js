@@ -17,6 +17,7 @@ import {
   TouchableOpacity,
   Text,
   FlatList,
+  ImageBackground,
   View, Alert
 } from 'react-native';
 
@@ -167,6 +168,7 @@ export default class Screen3 extends Component {
     return (
 
       <View style={styles.container}>
+
         <Spinner animation='fade' visible={this.state.visible} textStyle={{ color: '#FFF' }} />
         <View style={{ alignSelf: 'stretch', position: 'absolute', top: 0, width: require('Dimensions').get('window').width }}>
           <Toolbar
@@ -182,6 +184,7 @@ export default class Screen3 extends Component {
             rightElement={<Text onPress={() => this.onRightElementPress()} style={styles.searchText}> {this.state.rightElementText}</Text>}
           />
         </View>
+
         <Text style={styles.appTitle}>
           Podsource
             </Text>

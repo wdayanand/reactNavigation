@@ -35,7 +35,7 @@ const libraryepisodesStack = createStackNavigator({
   EpisodesShows: {
     screen: EpisodesShows, navigationOptions: ({ navigation, goBack }) =>
       ({
-        
+
       }),
   }
 });
@@ -60,7 +60,8 @@ const playerListStack = createStackNavigator({
   ShowsTitle: {
     screen: ShowsTitle, navigationOptions: ({ navigation, goBack }) =>
       ({
-      
+        header:null
+
 
       })
   }
@@ -79,19 +80,19 @@ const playerListStack = createStackNavigator({
               alignItems: 'center'
             }}
           >
-            <View style={{justifyContent: 'flex-start'}}><TouchableHighlight style={{
-               width: 10, height: 10,color:'gray'
+            <View style={{ justifyContent: 'flex-start' }}><TouchableHighlight style={{
+              width: 10, height: 10, color: 'gray'
             }}
-            onPress={() => navigation.goBack()
-            }
+              onPress={() => navigation.goBack()
+              }
               title="fgfdgfdg"
               accessibilityLabel="Learn more about this purple button"
 
             //  backgroundColor='red'
             >
               <Image
-        source={require('./assets/images/left-arrow-key.png')}
-      />
+                source={require('./assets/images/left-arrow-key.png')}
+              />
             </TouchableHighlight>
             </View>
 
@@ -101,7 +102,7 @@ const playerListStack = createStackNavigator({
             }}>
               <Text style={{ color: '#B9D3EE', textAlign: 'center' }}>P o d s o u r c e</Text>
             </View>
-            <View style={{justifyContent: 'flex-end',width:25}}>
+            <View style={{ justifyContent: 'flex-end', width: 25 }}>
             </View>
 
 
@@ -123,38 +124,44 @@ const DiscoveryList = createStackNavigator({
         header: null
       })
   },
-  
+
 
 
 });
 
 
 const App = createBottomTabNavigator({
-  Home: {
-    screen: playerScreenStack, navigationOptions: {
-      title: 'Home',
-      tabBarIcon: ({ tintColor }) => <Icon
-        name='more-horiz' color={tintColor} />
-    }
-  },
-  CollectionScreen: {
-    screen: playerListStack
-    , navigationOptions: {
-      title: 'Stumble',
-      tabBarIcon: () => <Image source={require('./assets/images/magicLamp.png')} style={{ width: 30, height: 30 }} />
-
-
-    }
-  },
   Screen3: {
     screen: Screen3, navigationOptions: {
-      title: 'Bookmark',
+      title: 'Home',
 
 
       tabBarIcon: ({ tintColor }) => <Icon
         name='bookmark' color={tintColor} />
     }
   },
+  Home: {
+    screen: playerScreenStack, navigationOptions: {
+      title: 'Stumble',
+
+      tabBarIcon: () => <Image source={require('./assets/images/magicLamp.png')} style={{ width: 30, height: 30 }} />
+
+     
+    }
+  },
+
+  CollectionScreen: {
+    screen: playerListStack
+    , navigationOptions: {
+      title: 'Bookmark',
+      tabBarIcon: ({ tintColor }) => <Icon
+      name='more-horiz' color={tintColor} />
+
+
+    }
+  },
+
+
   Library:
     {
       screen: libraryepisodesStack, navigationOptions:
@@ -186,7 +193,7 @@ const App = createBottomTabNavigator({
     },
     headerMode: 'screen',
     backBehavior: 'none',
-    initialRouteName: 'Home'
+    initialRouteName: 'Screen3'
   })
 // const App = createBottomTabNavigator({
 //   Home:

@@ -8,6 +8,10 @@ import ViewMoreText from "../components/ShowMoreComponent"
 const Color = require('../Constants/ConstantColor');
 import { I18n } from '../utility/translations/Locale';
 import { scale, moderateScale, verticalScale } from '../utility/scaling';
+import { Toolbar } from 'react-native-material-ui';
+import { BackHandler } from 'react-native'
+
+
 
 
 
@@ -34,7 +38,7 @@ export default class ShowTitleApp extends React.Component {
     static navigationOptions = ({ navigation }) => ({
         headerTintColor: Color.WHITE,
         headerStyle: {
-            backgroundColor: Color.COL_34_34_34npm 
+            backgroundColor: Color.COL_34_34_34 
         },
 
     })
@@ -69,6 +73,43 @@ export default class ShowTitleApp extends React.Component {
 
     }
 
+  /**
+     * Called when search text was changed.
+            */
+
+           appClose() {
+            const { goBack } = this.props.navigation;
+            goBack('CollectionScreen');
+            BackHandler.exitApp()
+        
+          }
+
+  onChangeText(input) {
+
+}
+
+/**
+* Called when search was closed.
+*/
+onSearchClosed() {
+    const { goBack } = this.props.navigation;
+    goBack('CollectionScreen');
+}
+/**
+* Called when action to close search was requested.
+*/
+onSearchCloseRequested() {
+    const { goBack } = this.props.navigation;
+            goBack('CollectionScreen');
+
+}
+/**
+* Called when search was opened.
+*/
+onSearchPressed() {
+
+}
+
     renderItem(data) {
         let { item, index } = data;
         return (
@@ -88,7 +129,18 @@ export default class ShowTitleApp extends React.Component {
         return (
             <View style={styles_View.container}>
             <ImageBackground source={require('../assets/images/Bck.png')} style={{width:'100%',height:'100%'}}>
-                <Text style={{ paddingTop: 20, fontWeight: 'bold', fontSize: moderateScale(45), color: Color.COL_pastel_blue }}>{this.state.textTitle}</Text>
+            <Toolbar
+          leftElement="close"
+          centerElement="Podsource"
+          onLeftElementPress={() => this.appClose()}
+          searchable={{
+            onSubmitEditing: () => this.onSubmitEditing(),
+            onChangeText: (input) => this.onChangeText(input),
+            autoFocus: true,
+            placeholder: 'Search',
+          }}
+        />
+                <Text style={{ paddingTop: 20, fontWeight: 'bold', fontSize: moderateScale(45), color: Color.COL_pastel_blue,alignSelf:'center' }}>{this.state.textTitle}</Text>
                 <ScrollView contentContainerStyle={styles_View.contentContainer} style={{
                     flexGrow: 1,
                     alignContent: 'center',
