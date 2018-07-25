@@ -203,12 +203,12 @@ export default class EpisodesShows extends React.Component {
                         <Text style={styles.mentionDesText}>{item.show_name}</Text>
                     </View>
                     <View style={styles.mentionPlayBlock}> 
-                        <View style={{alignSelf:'flex-start',flex:1,backgroundColor:Color.TRANSPARENT,minHeight:50}}>
-                            <TouchableOpacity onPress= {()=>this.onPressClickMe()}>
-                                <Image style={{height:50}} source={require('../assets/images/ic_bookmark.png')} />
+                        <View style={{flex:1,backgroundColor:Color.TRANSPARENT}}>
+                            <TouchableOpacity onPress= {()=>this.onPressClickMe()} style={{backgroundColor:Color.TRANSPARENT}} >
+                                <Image resizeMode="stretch" style={{height:50,width:'100%'}} source={require('../assets/images/ic_play_mentions.png')} />
                             </TouchableOpacity>
                         </View> 
-                        <View style={styles.bookMark}> 
+                        <View style={styles.mentionbookMark}> 
                             <TouchableOpacity style={{height:48,width:20}} onPress= {()=>this.onPressClickMe()}>
                                 <Image style={{height:48,width:20}} source={require('../assets/images/ic_bookmark.png')} />
                             </TouchableOpacity>                            
@@ -354,6 +354,7 @@ const styles = StyleSheet.create(
             paddingBottom: 0,
             paddingTop: 5,
             paddingLeft: 12,
+            justifyContent:'space-between',
           },
           mentionShowEpisodBlock: {
             flexDirection: 'column',
@@ -382,6 +383,7 @@ const styles = StyleSheet.create(
           {
             backgroundColor:Color.TRANSPARENT,
             justifyContent:'center',
+            paddingLeft:6,
             width:30,
           },
     }

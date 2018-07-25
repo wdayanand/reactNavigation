@@ -3,5 +3,8 @@
     "hint_search": "Search",
     "init_category_selection_txt":"What do you want to learn ?",
     "lbl_my_favorite": "My Favorites",
-    "btn_stumbe_pad":"Stumble-a-pad"
+    "btn_stumbe_pad":"Stumble-a-pad",
+    "txt_Read_More":"Read More",
+    "txt_Read_Less":"Read Less",
+    "txt_Show_Title":"Show Title"
 }
