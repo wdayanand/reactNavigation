@@ -14,25 +14,25 @@ import {
   Text,
   Button,
   View,
-  Image, TouchableOpacity, alert, Dimensions,ImageBackground
+  Image, TouchableOpacity, alert, Dimensions, ImageBackground
 } from 'react-native';
 import SegmentedControlTab from 'react-native-segmented-control-tab'
 
 export default class App extends Component {
 
-  
+
   constructor(props) {
     super(props)
-    
+
     this.state = {
       title1: 'title 1',
       title2: 'sub title',
       array_music: ["Music 1", "Music 2", "Music 3", "Music 4", "Music 5", "Music 6"],
-      array_MusicImages:["../assets/images/Music.png","../assets/images/Music.png","../assets/images/Music.png","../assets/images/Music.png","../assets/images/Music.png","../assets/images/Music.png"],
+      array_MusicImages: ["../assets/images/Music.png", "../assets/images/Music.png", "../assets/images/Music.png", "../assets/images/Music.png", "../assets/images/Music.png", "../assets/images/Music.png"],
       value: '0',
       angle: 0,
       page: 0,
-      array_Localmusic:[]
+      array_Localmusic: []
     }
   }
   state = {
@@ -40,37 +40,36 @@ export default class App extends Component {
   }
 
   handleIndexChange = (index) => {
-   
-    if(index == 1)
-    {
+
+    if (index == 1) {
       const { navigate } = this.props.navigation
       navigate("SearchResult", {})
-    //   MusicFiles.getAll({
-    //     blured : true, // works only when 'cover' is set to true
-    //     artist : true,
-    //     duration : true, //default : true
-    //     cover : true, //default : true,
-    //     genre : true,
-    //     title : true,
-    //     cover : true,
-    //     path:true,
-    //     SongID: true,
-    //     Url:true,
-    //     minimumSongDuration : 10000 ,// get songs bigger than 10000 miliseconds duration,
-    //     fields : ['title','albumTitle','genre','lyrics','artwork','duration','blured','artist','cover','path','url'] // for iOs Version
-    // }).then(tracks =>
-      
-    //   {
-    //     // do your stuff...
-    //     this.setState({
-    //       ...this.state,array_Localmusic:tracks
-    //     })
+      //   MusicFiles.getAll({
+      //     blured : true, // works only when 'cover' is set to true
+      //     artist : true,
+      //     duration : true, //default : true
+      //     cover : true, //default : true,
+      //     genre : true,
+      //     title : true,
+      //     cover : true,
+      //     path:true,
+      //     SongID: true,
+      //     Url:true,
+      //     minimumSongDuration : 10000 ,// get songs bigger than 10000 miliseconds duration,
+      //     fields : ['title','albumTitle','genre','lyrics','artwork','duration','blured','artist','cover','path','url'] // for iOs Version
+      // }).then(tracks =>
 
-        
-    // }).catch(error => 
-    //   {
-    //     // catch the error
-    // })
+      //   {
+      //     // do your stuff...
+      //     this.setState({
+      //       ...this.state,array_Localmusic:tracks
+      //     })
+
+
+      // }).catch(error => 
+      //   {
+      //     // catch the error
+      // })
     }
     this.setState({
       ...this.state,
@@ -111,6 +110,10 @@ export default class App extends Component {
 
   }
 
+  onClickShowTitle() {
+    this.props.navigation.navigate('ShowsTitle')
+  }
+
   onPageChange(page) {
 
     this.setState.page = page
@@ -124,37 +127,34 @@ export default class App extends Component {
     );
   }
 
-  onValueChange(num,radius) {
+  onValueChange(num, radius) {
     var dif = this.state.angle - num
-    console.info("num : "+num , " radius : "+radius , " dif : "+dif) 
-    if (Math.abs(dif) >= 90){// && Math.abs(dif) <= 100) {
-    if (dif < 0) {
-    console.info("Next : "+this.state.page)
-    if (this.state.page <= this.state.array_music.length) {
-    this.carousel.goToPage(this.state.page + 1);
-    this.setState({page: this.state.page + 1})
-    let authToken = this.state.array_music[this.state.page];
+    console.info("num : " + num, " radius : " + radius, " dif : " + dif)
+    if (Math.abs(dif) >= 90) {// && Math.abs(dif) <= 100) {
+      if (dif < 0) {
+        console.info("Next : " + this.state.page)
+        if (this.state.page <= this.state.array_music.length) {
+          this.carousel.goToPage(this.state.page + 1);
+          this.setState({ page: this.state.page + 1 })
+          let authToken = this.state.array_music[this.state.page];
+        }
+      }
+      else if (dif > 0) {
+        console.info("Prev : " + this.state.page)
+        if ((this.state.page) < 0) {
+          this.setState({ page: 0 })
+          this.carousel.goToPage(0);
+        }
+        else {
+          this.setState({ page: this.state.page - 1 })
+          this.carousel.goToPage(this.state.page - 1);
+        }
+        let authToken = this.state.array_music[this.state.page];
+      }
+      this.setState({ angle: num })
+
     }
-    }
-    else if (dif > 0)
-    {
-    console.info("Prev : "+this.state.page)
-    if((this.state.page) < 0)
-    {
-    this.setState({page: 0})
-    this.carousel.goToPage(0);
-    }
-    else
-    {
-    this.setState({page: this.state.page - 1})
-    this.carousel.goToPage(this.state.page - 1);
-    }
-    let authToken = this.state.array_music[this.state.page];
-    }
-    this.setState({angle:num})
-    
-    }
-    }
+  }
 
   render() {
     var musicArray = this.state.array_music
@@ -185,10 +185,10 @@ export default class App extends Component {
           <CarouselPager onPageChange={(page) => this.onPageChange(page)} ref={ref => this.carousel = ref} initialPage={this.state.page} pageStyle={{ backgroundColor: '#fff' }}>
             {musicArray.map((item, key) =>
               (
-               // <View key={key}><Text>{item}</Text></View>
-               <View key={key} style={{alignItems: 'center',}}><ImageBackground style={{flex:1,width:120,height:120}} source={require("../assets/images/Music.png")}/><Text style={{marginBottom:10,color:'black',width:50}}>item</Text></View>
+                // <View key={key}><Text>{item}</Text></View>
+                <View key={key} style={{ alignItems: 'center', }}><ImageBackground style={{ flex: 1, width: 120, height: 120 }} source={require("../assets/images/Music.png")} /><Text style={{ marginBottom: 10, color: 'black', width: 50 }}>item</Text></View>
 
-              
+
               )
             )}
 
@@ -209,7 +209,7 @@ export default class App extends Component {
                 <Dial
                   style={{ width: 120, height: 120, marginBottom: 30, backgroundColor: 'gray' }}
                   maximumValue={3600}
-                  step={360/50}
+                  step={360 / 50}
                   onValueChange={num => this.onValueChange(num)}>
                   <Image style={{ width: 120, height: 120 }} source={require('../assets/images/img_Circle.png')} />
                 </Dial>
@@ -225,7 +225,7 @@ export default class App extends Component {
           </View>
 
           <View style={style.bottomContenerRight}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.onClickShowTitle()}>
               <Image style={style.imageContainer} source={require("../assets/images/magicLamp.png")} />
 
             </TouchableOpacity>
@@ -242,109 +242,109 @@ const style = StyleSheet.create(
   {
 
     circleComponent:
-    {
-      width: str_width,
-      height: 200,
-      marginTop: 0,
-      alignItems: 'center'
-      , justifyContent: 'center',
+      {
+        width: str_width,
+        height: 200,
+        marginTop: 0,
+        alignItems: 'center'
+        , justifyContent: 'center',
 
-    }
+      }
     ,
     imageContainer:
-    {
-      width: 40,
-      height: 40
-    },
+      {
+        width: 40,
+        height: 40
+      },
     imageContainer2:
-    {
-      width: 30,
-      height: 30
-    }
+      {
+        width: 30,
+        height: 30
+      }
     ,
     mainContainer:
-    {
-      flex: 1,
-      // backgroundColor:'red',
-      marginTop: 20,
-      height: 100,
-      width: str_width,
-    }
+      {
+        flex: 1,
+        // backgroundColor:'red',
+        marginTop: 20,
+        height: 100,
+        width: str_width,
+      }
     ,
     sliderWidth:
-    {
-      width: str_width,
+      {
+        width: str_width,
 
-    },
+      },
     itemWidth:
-    {
-      width: str_width - 40,
+      {
+        width: str_width - 40,
 
-    }
+      }
     ,
 
     bottomcontainer:
-    {
+      {
 
-      width: str_width,
-      height: 200,
-      marginTop: 20,
-    }
+        width: str_width,
+        height: 200,
+        marginTop: 20,
+      }
     ,
     bottomContenerLeft:
-    {
+      {
 
-      width: 40,
-      height: 40,
-      marginBottom: 5,
-      position: 'absolute',
-      bottom: 5,
-      marginLeft: 25, left: 1,
-      alignItems: 'center',
-
-
+        width: 40,
+        height: 40,
+        marginBottom: 5,
+        position: 'absolute',
+        bottom: 5,
+        marginLeft: 25, left: 1,
+        alignItems: 'center',
 
 
 
-    },
+
+
+      },
     bottomContenerRight:
-    {
-      width: 40,
-      height: 40,
-      marginBottom: 5,
-      position: 'absolute',
-      bottom: 5,
-      right: 1,
-      alignItems: 'center',
+      {
+        width: 40,
+        height: 40,
+        marginBottom: 5,
+        position: 'absolute',
+        bottom: 5,
+        right: 1,
+        alignItems: 'center',
 
 
-      marginRight: 25,
+        marginRight: 25,
 
 
-      // width:20,
-      // height:20
-    }
+        // width:20,
+        // height:20
+      }
     ,
     backgroundContent:
-    {
-      backgroundColor: 'black',
-      flex: 1, //alignItems: 'stretch', padding: 10,
-      //justifyContent: 'center', 
-      alignItems: 'center',
-    },
+      {
+        backgroundColor: 'black',
+        flex: 1, //alignItems: 'stretch', padding: 10,
+        //justifyContent: 'center', 
+        alignItems: 'center',
+      },
 
     outerSegmentcontener:
-    {
-      width: 200,
-      height: 30,
-      marginTop: 20,
+      {
+        width: 200,
+        height: 30,
+        marginTop: 20,
 
-    },
+      },
     segmentContent:
-    {
-      width: 200,
-      height: 30,
-    }
+      {
+        width: 200,
+        height: 30,
+      }
 
   }
 );

@@ -6,7 +6,7 @@ export default class HelloWorldApp extends React.Component {
     
 onClick()
 {
-this.props.navigation.navigate('ShowsTitle')
+//this.props.navigation.navigate('ShowsTitle')
 }
 render() {
 return (
