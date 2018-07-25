@@ -7,6 +7,8 @@ import {View} from 'react-native'
 module.exports = {
         CLEAR : '#00000000',
         RED : 'red',
+        WHITE:'white',
+        YELLOW:'yellow',
         TRANSPARENT:'transparent',
         COL_34_34_34 : 'rgba(34,34,34,1)',
         COL_28_75_144 : 'rgba(28,75,144,1)',
