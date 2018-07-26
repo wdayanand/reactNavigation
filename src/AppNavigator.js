@@ -16,6 +16,8 @@ import Splash from './Screens/Splash';
 import SearchResult from './Screens/SearchResult'
 import CollectionScreen from './Screens/CollectionScreen';
 import EpisodesShows from './Screens/EpisodesShows'; //Rahul
+import NewsVC from './Screens/NewsVC'; //Rahul
+
 
 import PlayMusic from './Screens/PlayMusic';
 import { Platform } from 'react-native';
@@ -34,6 +36,12 @@ const libraryepisodesStack = createStackNavigator({
   },
   EpisodesShows: {
     screen: EpisodesShows, navigationOptions: ({ navigation, goBack }) =>
+      ({
+        header: null
+      }),
+  },
+  NewsVC: {
+    screen: NewsVC, navigationOptions: ({ navigation, goBack }) =>
       ({
         header: null
       }),

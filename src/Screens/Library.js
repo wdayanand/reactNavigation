@@ -6,10 +6,15 @@ export default class Library extends React.Component {
   {
     this.props.navigation.navigate('EpisodesShows')
   }
+  onClickNews()
+  {
+    this.props.navigation.navigate('NewsVC')
+  }
   render() {
     return (
-      <View>                
-        <Button onPress = {() => this.onClick()} title = "Episodes Shows" > </Button>        
+      <View style={{justifyContent:'center',flex:1}}>                
+        <Button onPress = {() => this.onClick()} title = "Episodes Shows" > </Button>
+        <Button onPress = {() => this.onClickNews()} title = "News" > </Button>        
       </View>
     );
   }

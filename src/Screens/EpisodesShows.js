@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SearchBar } from 'react-native-elements'
-import {View,Button,StyleSheet,Alert,TouchableOpacity,Image,Platform,SectionList,Text,FlatList} from 'react-native'
+import {View,Button,StyleSheet,Alert,TouchableOpacity,Image,Platform,SectionList,Text,FlatList,ImageBackground} from 'react-native'
 import SegmentControl from '../components/SegmentedControlTab'
 
 import { Toolbar } from 'react-native-material-ui';
@@ -87,7 +87,7 @@ export default class EpisodesShows extends React.Component {
           }
 
         return (           
-                    <View style={{flex: 1,backgroundColor:Color.COL_10_14_25, marginTop : (Platform.OS) == 'ios' ? 0 : 0 }}>
+                    <View style={{flex: 1,backgroundColor:Color.TRANSPARENT, marginTop : (Platform.OS) == 'ios' ? 0 : 0 }}>
                         <ImageBackground source={require('../assets/images/Bck.png')} style={{width:'100%',height:'100%'}}>
                             <View style={styles.SearchViewStyle}>
                                 <View style={{paddingTop: 0, paddingLeft: 0, paddingRight: 0 ,backgroundColor : Color.TRANSPARENT,width:50}}>        
@@ -100,19 +100,19 @@ export default class EpisodesShows extends React.Component {
                                 </View> 
                                 <View style={{backgroundColor : Color.TRANSPARENT,flex:1}}> 
                                     <Toolbar
-                                            style={{ container: { elevation: 0, backgroundColor: 'transparent' } }}
+                                            style={{ container: { elevation: 0, backgroundColor: Color.TRANSPARENT } }}
                                             searchable={{
                                             onSubmitEditing: () => this.onSubmitEditing(),
                                             onChangeText: (input) => this.onChangeText(input),
                                             onSearchClosed: () => this.onSearchClosed(),
                                             autoFocus: true,
-                                            placeholder: I18n.t('hint_search'),
+                                            placeholder: I18n.t('hint_search_pod'),
                                             }}
                                             rightElement={<Text onPress={() => this.onRightElementPress()} style={styles.searchText}> {this.state.rightElementText}</Text>}
                                         />
                                 </View> 
                             </View>                            
-                            <View style={{ backgroundColor : Color.COL_10_14_25,height:66,flexDirection:'column'}}>
+                            <View style={{ backgroundColor : Color.TRANSPARENT,height:66,flexDirection:'column'}}>
                                 <View style={{paddingTop: 15, paddingLeft: 35, paddingRight: 35 }}>
                                     <SegmentControl
                                         values={this.state.segTitleArray}
