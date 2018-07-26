@@ -88,6 +88,7 @@ export default class EpisodesShows extends React.Component {
 
         return (           
                     <View style={{flex: 1,backgroundColor:Color.COL_10_14_25, marginTop : (Platform.OS) == 'ios' ? 0 : 0 }}>
+                        <ImageBackground source={require('../assets/images/Bck.png')} style={{width:'100%',height:'100%'}}>
                             <View style={styles.SearchViewStyle}>
                                 <View style={{paddingTop: 0, paddingLeft: 0, paddingRight: 0 ,backgroundColor : Color.TRANSPARENT,width:50}}>        
                                     <TouchableOpacity style={styles.TouchButtonIconStyle} activeOpacity={0.5} disabled = {false}> 
@@ -136,7 +137,7 @@ export default class EpisodesShows extends React.Component {
                                     : this.renderShowsItem()
                                 : this.renderMentionItemFlateList()
                             }
-                            
+                           </ImageBackground> 
                     </View>
         );
     }

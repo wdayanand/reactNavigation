@@ -2,12 +2,16 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, FlatList, Dimensions, ImageBackground,Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, FlatList, Dimensions, ImageBackground, Alert } from 'react-native';
 import Tags from "react-native-tags";
 import ViewMoreText from "../components/ShowMoreComponent"
 const Color = require('../Constants/ConstantColor');
 import { I18n } from '../utility/translations/Locale';
 import { scale, moderateScale, verticalScale } from '../utility/scaling';
+import { Toolbar } from 'react-native-material-ui';
+import { BackHandler } from 'react-native'
+
+
 
 
 
@@ -34,7 +38,7 @@ export default class ShowTitleApp extends React.Component {
     static navigationOptions = ({ navigation }) => ({
         headerTintColor: Color.WHITE,
         headerStyle: {
-            backgroundColor: 'gray'
+            backgroundColor: Color.COL_34_34_34 
         },
 
     })
@@ -56,6 +60,56 @@ export default class ShowTitleApp extends React.Component {
         )
     }
 
+    pressLike(item) {
+        Alert.alert(item.name, 'pressLike')
+    }
+
+    pressDot(item) {
+        Alert.alert(item.name, 'pressDot')
+
+    }
+    pressRedFlag(item) {
+        Alert.alert(item.name, 'pressRedFlag')
+
+    }
+
+  /**
+     * Called when search text was changed.
+            */
+
+           appClose() {
+            const { goBack } = this.props.navigation;
+            goBack('CollectionScreen');
+            BackHandler.exitApp()
+        
+          }
+
+  onChangeText(input) {
+
+}
+
+/**
+* Called when search was closed.
+*/
+onSearchClosed() {
+    const { goBack } = this.props.navigation;
+    goBack('CollectionScreen');
+}
+/**
+* Called when action to close search was requested.
+*/
+onSearchCloseRequested() {
+    const { goBack } = this.props.navigation;
+            goBack('CollectionScreen');
+
+}
+/**
+* Called when search was opened.
+*/
+onSearchPressed() {
+
+}
+
     renderItem(data) {
         let { item, index } = data;
         return (
@@ -74,7 +128,19 @@ export default class ShowTitleApp extends React.Component {
 
         return (
             <View style={styles_View.container}>
-                <Text style={{ paddingTop: 20, fontWeight: 'bold', fontSize: moderateScale(45), color: Color.COL_pastel_blue }}>{this.state.textTitle}</Text>
+            <ImageBackground source={require('../assets/images/Bck.png')} style={{width:'100%',height:'100%'}}>
+            <Toolbar
+          leftElement="close"
+          centerElement="Podsource"
+          onLeftElementPress={() => this.appClose()}
+          searchable={{
+            onSubmitEditing: () => this.onSubmitEditing(),
+            onChangeText: (input) => this.onChangeText(input),
+            autoFocus: true,
+            placeholder: 'Search',
+          }}
+        />
+                <Text style={{ paddingTop: 20, fontWeight: 'bold', fontSize: moderateScale(45), color: Color.COL_pastel_blue,alignSelf:'center' }}>{this.state.textTitle}</Text>
                 <ScrollView contentContainerStyle={styles_View.contentContainer} style={{
                     flexGrow: 1,
                     alignContent: 'center',
@@ -110,7 +176,7 @@ export default class ShowTitleApp extends React.Component {
 
                         containerStyle={{ justifyContent: "center" }}
                         onChangeTags={tags => console.log(tags)}
-                        onTagPress={(index, tagLabel, event) => console.log(index, tagLabel, event)}
+                        onTagPress={() => Alert.alert('tag pressed')}
                         tagContainerStyle={{ backgroundColor: Color.COL_DarkYellow }} readonly
                     >
 
@@ -140,19 +206,19 @@ export default class ShowTitleApp extends React.Component {
                                     </View>
 
                                     <View style={{ height: 100, width: 150, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                                        <TouchableOpacity style={{ width: 10, height: 10, alignItems: 'flex-start', paddingLeft: 10 }} onPress= {()=>Alert.alert(item.name)}>
+                                        <TouchableOpacity style={{ width: 10, height: 10, alignItems: 'flex-start', paddingLeft: 10 }} onPress={() => this.pressDot(item)}>
                                             <Image
                                                 style={styles.button}
                                                 source={require('../assets/images/dotdot.png')}
                                             />
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={{ width: 10, height: 10, alignItems: 'center' }}>
+                                        <TouchableOpacity style={{ width: 10, height: 10, alignItems: 'center' }} onPress={() => this.pressLike(item)}>
                                             <Image
                                                 style={styles.button}
                                                 source={require('../assets/images/like.png')}
                                             />
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={{ width: 10, height: 10, alignItems: 'flex-end', paddingRight: 10 }}>
+                                        <TouchableOpacity style={{ width: 10, height: 10, alignItems: 'flex-end', paddingRight: 10 }} onPress={() => this.pressRedFlag(item)}>
                                             <Image
                                                 style={{ width: 20, height: 35 }}
                                                 source={require('../assets/images/ic_bookmark.png')}
@@ -167,7 +233,7 @@ export default class ShowTitleApp extends React.Component {
                     </View>
 
                 </ScrollView>
-
+</ImageBackground>
             </View>
         );
     }
