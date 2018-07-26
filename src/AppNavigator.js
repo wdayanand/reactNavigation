@@ -7,9 +7,10 @@
 import React, { Component } from 'react';
 import { createBottomTabNavigator, createSwitchNavigator, createStackNavigator } from 'react-navigation';
 import Home from './Screens/Home';
-import Screen3 from './Screens/Screen3';
+//import Screen3 from './Screens/Screen3';
 import Screen4 from './Screens/Screen4';
 import Discover from './Screens/Discover';
+import PodSourceHome from './Screens/PodSourceHome'
 import ShowsTitle from './Screens/ShowsTitle';
 import Library from './Screens/Library';
 import Splash from './Screens/Splash';
@@ -131,8 +132,8 @@ const DiscoveryList = createStackNavigator({
 
 
 const App = createBottomTabNavigator({
-  Screen3: {
-    screen: Screen3, navigationOptions: {
+  PodSourceHome: {
+    screen: PodSourceHome, navigationOptions: {
       title: 'Home',
 
 
@@ -193,7 +194,7 @@ const App = createBottomTabNavigator({
     },
     headerMode: 'screen',
     backBehavior: 'none',
-    initialRouteName: 'Screen3'
+    initialRouteName: 'PodSourceHome'
   })
 // const App = createBottomTabNavigator({
 //   Home:
