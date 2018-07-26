@@ -8,6 +8,8 @@ import {
   Text,
   View,ImageBackground,Alert
 } from 'react-native';
+const Color = require('../Constants/ConstantColor');
+import { I18n } from '../utility/translations/Locale';
 
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
@@ -17,18 +19,18 @@ var REQUEST_URL = API_URL + PARAMS;
 var MOVIES_PER_ROW = 3;
 const data = [
   {id: 'a',name:'News', value: '../assets/images/newspaper.png'},
-  {id: 'b',name:'Entertainment', value: '../assets/images/newspaper.png'},
+  {id: 'b',name:'Entertainment', value: '../assets/images/ic_book_shows.png'},
   {id: 'c',name:'Sports', value: '../assets/images/newspaper.png'},
-  {id: 'd',name:'Business', value: '../assets/images/newspaper.png'},
+  {id: 'd',name:'Business', value: '../assets/images/books.png'},
   {id: 'e',name:'Food/Drink', value: '../assets/images/newspaper.png'},
   {id: 'f',name:'Art', value: '../assets/images/newspaper.png'},
   {id: 'a',name:'Comedy', value: '../assets/images/newspaper.png'},
   {id: 'b',name:'Health', value: '../assets/images/newspaper.png'},
   {id: 'c',name:'Culture', value: '../assets/images/newspaper.png'},
   {id: 'd',name:'Music', value: '../assets/images/newspaper.png'},
-  {id: 'e',name:'', value: '../assets/images/newspaper.png'},
-  {id: 'f',name:'', value: '../assets/images/newspaper.png'},
-  {id: 'f',name:'', value: '../assets/images/newspaper.png'},
+  {id: 'e',name:'Tech', value: '../assets/images/newspaper.png'},
+  {id: 'f',name:'Travel', value: '../assets/images/newspaper.png'},
+  {id: 'f',name:'Fashion', value: '../assets/images/newspaper.png'},
 
 ];
 
@@ -42,10 +44,7 @@ class Movie extends React.Component {
             style={styles.thumbnail}
           /> }
           <View >
-            <Text 
-            style={styles.title}
-            numberOfLines={6}>{this.props.movie.title}</Text>
-            <Text style={styles.year}>{this.props.movie.id}</Text>
+            <Text style={styles.title}>{this.props.movie.name}</Text>
           </View>
         </View>
       );
@@ -87,13 +86,16 @@ export default class HelloWorldApp extends React.Component  {
     }
 
     return (
-      <GridView style={{paddingLeft:20,paddingRight:20}}
+      <ImageBackground source={require('../assets/images/Bck1.png')} style={{width:'100%',height:'100%'}}>
+      <GridView style={{paddingLeft:20,paddingRight:20,backgroundColor:Color.TRANSPARENT}}
         items={this.state.dataSource}
         itemsPerRow={MOVIES_PER_ROW}
         renderItem={this.renderItem}
         itemDimension={80}
         style={styles.listView}
       />
+    </ImageBackground>
+
     );
   }
 
@@ -118,14 +120,15 @@ var styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     flexDirection: 'column',
-    backgroundColor:'red',
  
   },
   title: {
+    color:Color.WHITE,
     fontSize: 10,
-    marginBottom: 8,
-    width: 90,
+    width: 80,
     textAlign: 'center',
+    paddingTop: 10,
+    
   },
   year: {
     textAlign: 'center',
@@ -136,7 +139,7 @@ var styles = StyleSheet.create({
   },
   listView: {
     paddingTop: 20,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: Color.TRANSPARENT,
   },
 });
 
