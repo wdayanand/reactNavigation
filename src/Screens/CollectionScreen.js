@@ -29,7 +29,7 @@ export default class App extends Component {
       title1: 'Episode Title 1',
       title2: 'sub title',
       array_music: ["Music 1", "Music 2", "Music 3", "Music 4", "Music 5", "Music 6"],
-      array_MusicImages: ["../assets/images/Music.png", "../assets/images/Music.png", "../assets/images/Music.png", "../assets/images/Music.png", "../assets/images/Music.png", "../assets/images/Music.png"],
+      array_MusicImages: ["../assets/images/Music.png", "../assets/images/Music.png", "../assets/images/rose.png", "../assets/images/dummy.png", "../assets/images/Music.png", "../assets/images/Music.png"],
       value: '0',
       angle: 0,
       page: 0,

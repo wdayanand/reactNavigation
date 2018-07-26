@@ -112,15 +112,7 @@ onSearchPressed() {
 
     renderItem(data) {
         let { item, index } = data;
-        return (
-            <View style={styles.itemBlock}>
-                <Image source={{ uri: item.picture }} style={styles.itemImage} />
-                <View style={styles.itemMeta}>
-                    <Text style={styles.itemName}>{item.name}</Text>
-                    <Text style={styles.itemLastMessage}>{item.last_message}</Text>
-                </View>
-            </View>
-        )
+       
     }
 
     render() {

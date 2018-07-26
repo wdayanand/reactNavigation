@@ -9,7 +9,7 @@ import { I18n } from '../utility/translations/Locale';
 import AsyncImageAnimated from 'react-native-async-image-animated';
 
 
-const Color  = require('../Constants/ConstantColor');
+const Color = require('../Constants/ConstantColor');
 
 export default class EpisodesShows extends React.Component {
 
@@ -42,8 +42,8 @@ export default class EpisodesShows extends React.Component {
         }
         actionOnClear()
         {
-
         }
+
 
         A = [{"id":1,"name":"Shilpi","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
         {"id":1,"name":"Chipli","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
@@ -80,12 +80,10 @@ export default class EpisodesShows extends React.Component {
 
     render() {
 
-        GetSectionListItem=(item)=>{
+        GetSectionListItem = (item) => {
 
             Alert.alert(item)
-        
-          }
-
+        }
         return (           
                     <View style={{flex: 1,backgroundColor:Color.TRANSPARENT, marginTop : (Platform.OS) == 'ios' ? 0 : 0 }}>
                         <ImageBackground source={require('../assets/images/Bck.png')} style={{width:'100%',height:'100%'}}>
@@ -138,11 +136,11 @@ export default class EpisodesShows extends React.Component {
                                 : this.renderMentionItemFlateList()
                             }
                            </ImageBackground> 
-                    </View>
+                    </View>                   
         );
     }
 
-    renderEpisodsItem() {            
+    renderEpisodsItem() {
         return (
             <SectionList 
                                             sections={this.sections}
@@ -174,13 +172,13 @@ export default class EpisodesShows extends React.Component {
         ) 
       }
 
-      renderShowsItem() {            
+    renderShowsItem() {
         return (
-            <SectionList 
-                    sections={this.sections}
-                    ItemSeparatorComponent={Separator}                      
-                    renderSectionHeader={ ({section}) => <Text style={styles.SectionHeaderStyle}> { section.title } </Text> }
-                    renderItem={ ({item}) => 
+            <SectionList
+                sections={this.sections}
+                ItemSeparatorComponent={Separator}
+                renderSectionHeader={({ section }) => <Text style={styles.SectionHeaderStyle}> {section.title} </Text>}
+                renderItem={({ item }) =>
                     <View style={styles.itemBlock}>
                         <View>
                         <AsyncImageAnimated
@@ -193,17 +191,17 @@ export default class EpisodesShows extends React.Component {
                         <View style={styles.itemMeta}>
                             <Text style={styles.itemName}>{item.name}</Text>
                             <Text style={styles.itemLastMessage}>{item.last_message}</Text>
-                        </View> 
-                        <View style={styles.bookMark}> 
-                            <TouchableOpacity style={{height:48,width:20}} onPress= {()=>this.onPressClickMe()}>
-                                <Image style={{height:35,width:20}} source={require('../assets/images/ic_bookmark.png')} />
-                            </TouchableOpacity>                            
-                        </View>                                               
-                     </View>}
-                    keyExtractor={ (item, index) => index }
-            />                                           
-        ) 
-      }
+                        </View>
+                        <View style={styles.bookMark}>
+                            <TouchableOpacity style={{ height: 48, width: 20 }} onPress={() => this.onPressClickMe()}>
+                                <Image style={{ height: 35, width: 20 }} source={require('../assets/images/ic_bookmark.png')} />
+                            </TouchableOpacity>
+                        </View>
+                    </View>}
+                keyExtractor={(item, index) => index}
+            />
+        )
+    }
 
       renderMentionItemFlateList() {            
         return (
@@ -241,52 +239,16 @@ export default class EpisodesShows extends React.Component {
             />                                          
         )        
       }
-      /*renderMentionItemSectionList() {            
-        return (
-            <SectionList 
-            sections={this.sections}
-            renderSectionHeader={ ({section}) => <Text style={styles.SectionHeaderStyle}> { section.title } </Text> }
-            renderItem={ ({item}) => 
-                <View style={styles.mentionItemBlock}>
-                <View style={{justifyContent:'flex-end'}}>
-                    <AsyncImageAnimated
-                            source={{ uri: item.picture}}
-                            placeholderSource={require('../assets/images/ic_placeholder_avatar.png')}
-                            style={styles.itemImage}
-                        />                   
-                </View>
-                <View style={styles.mentionShowEpisodBlock}>
-                    <View style={{paddingLeft:10}}>
-                        <Text style={styles.mentionTitleName}>{item.epi_name}</Text>
-                        <Text style={styles.mentionDesText}>{item.show_name}</Text>
-                    </View>
-                    <View style={styles.mentionPlayBlock}> 
-                        <View style={{flex:1,backgroundColor:Color.TRANSPARENT}}>
-                            <TouchableOpacity onPress= {()=>this.onPressClickMe()} style={{backgroundColor:Color.TRANSPARENT}} >
-                                <Image resizeMode="stretch" style={{height:50,width:'100%'}} source={require('../assets/images/ic_play_mentions.png')} />
-                            </TouchableOpacity>
-                        </View> 
-                        <View style={styles.mentionbookMark}> 
-                            <TouchableOpacity style={{height:48,width:20}} onPress= {()=>this.onPressClickMe()}>
-                                <Image style={{height:48,width:20}} source={require('../assets/images/ic_bookmark.png')} />
-                            </TouchableOpacity>                            
-                        </View>                                               
-                    </View>
-                </View>                
-            </View>}
-            keyExtractor={ (item, index) => index }
-        />                                           
-        )        
-      }*/
+      
       onPressClickMe()
       {
           this.state.selectedTabIndex == 0 ?
             Alert.alert("Episodes")  : false
 
-            this.state.selectedTabIndex == 1 ?
-            Alert.alert("Shows")  : false
+        this.state.selectedTabIndex == 1 ?
+            Alert.alert("Shows") : false
 
-            this.state.selectedTabIndex == 2 ?
+        this.state.selectedTabIndex == 2 ?
             Alert.alert("Mentions") : false
       }
             /**
@@ -316,10 +278,11 @@ export default class EpisodesShows extends React.Component {
         onSubmitEditing() {
             Alert.alert('text=')
         }
-}
+    }
+
 const Separator = () => (
     <View style={[styles.separatorContainer]} />
-  );
+);
 const styles = StyleSheet.create(
     {
         SearchViewStyle:{   
@@ -334,18 +297,24 @@ const styles = StyleSheet.create(
         tabsContainerStyle:{
             backgroundColor : Color.CLEAR,
         },
-        tabsStyle:{
-            backgroundColor : Color.COL_0_49_125,
+        tabsStyle: {
+            backgroundColor: Color.COL_0_49_125,
             borderColor: Color.RED,
         },
-        activeTab:{
-            backgroundColor : Color.COL_28_75_144
+        activeTab: {
+            backgroundColor: Color.COL_28_75_144
         },
-        ImageIconStyle:{
-          width:40,
-          height:40,
-          marginTop:0,
-          paddingLeft:5
+        ImageIconStyle: {
+            width: 40,
+            height: 40,
+            marginTop: 0,
+            paddingLeft: 5
+        },
+        TouchButtonIconStyle: {
+            width: 35,
+            height: 40,
+            marginTop: -5,
+            paddingLeft: 8
         },
         TouchButtonIconStyle:{
             width:35,
@@ -360,126 +329,126 @@ const styles = StyleSheet.create(
             color: '#fff',
             textAlign: 'right', // <-- the magic
             fontSize: 16,
-            marginTop: 0,                    
-          },
-          separatorContainer: {
+            marginTop: 0,
+        },
+        separatorContainer: {
             height: 0.7,
-            paddingLeft:10,
+            paddingLeft: 10,
             backgroundColor: 'white',
-          },        
-          SectionListItemStyle:{         
-            fontSize : 15,
+        },
+        SectionListItemStyle: {
+            fontSize: 15,
             padding: 5,
             color: '#000',
-            backgroundColor : '#F5F5F5'         
-          },
-          itemBlock: {
+            backgroundColor: '#F5F5F5'
+        },
+        itemBlock: {
             flexDirection: 'row',
-            justifyContent:'space-between',
+            justifyContent: 'space-between',
             paddingBottom: 8,
             paddingTop: 10,
             paddingLeft: 12,
-          },
-          
-          innerItemBlock: {
+        },
+
+        innerItemBlock: {
             flexDirection: 'row',
-            justifyContent:'space-between',
+            justifyContent: 'space-between',
             paddingBottom: 10,
             paddingTop: 10,
             paddingLeft: 0,
-          },
-          innerItemTextBlock: {
-            fontSize: 12,            
+        },
+        innerItemTextBlock: {
+            fontSize: 12,
             color: '#fff',
             textAlign: 'left',
-            marginTop: 0,  
-            flex:3,
-            backgroundColor:Color.TRANSPARENT
-          },
-          innerItemDesBlock: {
-            fontSize: 10,                        
+            marginTop: 0,
+            flex: 3,
+            backgroundColor: Color.TRANSPARENT
+        },
+        innerItemDesBlock: {
+            fontSize: 10,
             color: '#fff',
             textAlign: 'center',
-            width:8,  
-            backgroundColor:Color.TRANSPARENT,
-            flex:1,
-          },
-          itemImage: {
+            width: 8,
+            backgroundColor: Color.TRANSPARENT,
+            flex: 1,
+        },
+        itemImage: {
             width: 80,
             height: 60,
-            paddingLeft:20,
+            paddingLeft: 20,
             borderRadius: 0,
-            justifyContent:'center'
-          },
-          itemTime: {
+            justifyContent: 'center'
+        },
+        itemTime: {
             fontSize: 10,
             color: "white",
             width: 80,
             height: 15,
-            paddingTop:5,
+            paddingTop: 5,
             textAlign: 'center',
-          },
-          itemMeta: {            
+        },
+        itemMeta: {
             paddingLeft: 10,
             paddingRight: 10,
-            flex:1
-          },
-          itemName: {
+            flex: 1
+        },
+        itemName: {
             fontSize: 22,
             color: "white",
-          },
-          itemLastMessage: {
+        },
+        itemLastMessage: {
             fontSize: 14,
             color: "white",
-          },
-          bookMark:
-          {
-            backgroundColor:Color.TRANSPARENT,
-            justifyContent:'center',
-            width:35,
-          },
-          mentionItemBlock: {
+        },
+        bookMark:
+            {
+                backgroundColor: Color.TRANSPARENT,
+                justifyContent: 'center',
+                width: 35,
+            },
+        mentionItemBlock: {
             flexDirection: 'row',
             paddingBottom: 8,
             paddingTop: 5,
             paddingLeft: 5,
-          },
-          mentionPlayBlock: {
+        },
+        mentionPlayBlock: {
             flexDirection: 'row',
             paddingBottom: 0,
             paddingTop: 5,
             paddingLeft: 12,
-            justifyContent:'space-between',
-          },
-          mentionShowEpisodBlock: {
+            justifyContent: 'space-between',
+        },
+        mentionShowEpisodBlock: {
             flexDirection: 'column',
-            paddingBottom:0,
+            paddingBottom: 0,
             paddingTop: 0,
             paddingLeft: 0,
-            flex:1,
-          },
-          mentionTitleName: {
+            flex: 1,
+        },
+        mentionTitleName: {
             fontWeight: 'bold',
             fontSize: 16,
             color: "white",
-          },
-          mentionItemImage: {
+        },
+        mentionItemImage: {
             width: 80,
             height: 55,
-            paddingLeft:20,
+            paddingLeft: 20,
             borderRadius: 0,
-            justifyContent:'center'
-          },
-          mentionDesText: {
+            justifyContent: 'center'
+        },
+        mentionDesText: {
             fontSize: 12,
             color: Color.WHITE,
-          },
-          mentionbookMark:
-          {
-            backgroundColor:Color.TRANSPARENT,
-            justifyContent:'center',
-            paddingLeft:6,
-            width:30,
-          },
+        },
+        mentionbookMark:
+            {
+                backgroundColor: Color.TRANSPARENT,
+                justifyContent: 'center',
+                paddingLeft: 6,
+                width: 30,
+            },
     }
 )

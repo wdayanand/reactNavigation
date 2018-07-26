@@ -166,6 +166,7 @@ export default class Screen3 extends Component {
   }
   render() {
     return (
+      <ImageBackground source={require('../assets/images/Bck1.png')} style={{width:'100%',height:'100%'}}>
 
       <View style={styles.container}>
 
@@ -221,7 +222,7 @@ export default class Screen3 extends Component {
           <Text style={styles.favoriteText}>{I18n.t('lbl_my_favorite')}</Text>
         </View>
       </View>
-
+      </ImageBackground>
     );
   }
 }
@@ -230,7 +231,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#150030',
+   // backgroundColor: '#150030',
   },
   searchText: {
     color: 'white',

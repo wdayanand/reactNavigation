@@ -6,10 +6,30 @@ import {
   ListView,
   StyleSheet,
   Text,
-  View,ImageBackground,Alert
+  View,ImageBackground,Alert,TouchableOpacity
 } from 'react-native';
 const Color = require('../Constants/ConstantColor');
+import { Toolbar } from 'react-native-material-ui';
+import { BackHandler } from 'react-native'
+import { scale, moderateScale, verticalScale } from '../utility/scaling';
+
 import { I18n } from '../utility/translations/Locale';
+import img1 from'../assets/images/newspaper.png'
+import img2 from'../assets/images/ic_book_shows.png'
+import img3 from'../assets/images/Sports.png'
+import img4 from'../assets/images/Business.png'
+import img5 from'../assets/images/Entertainment.png'
+import img6 from'../assets/images/Art.png'
+import img7 from'../assets/images/comedy.png'
+import img8 from'../assets/images/Health.png'
+import img9 from'../assets/images/worldwide.png'
+import img10 from'../assets/images/musicLine.png'
+import img11 from'../assets/images/tech.png'
+import img12 from'../assets/images/airplane.png'
+import img13 from"../assets/images/rose.png"
+import img14 from"../assets/images/add.png"
+
+
 
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
@@ -17,36 +37,53 @@ var PAGE_SIZE = 25;
 var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var REQUEST_URL = API_URL + PARAMS;
 var MOVIES_PER_ROW = 3;
+
+
 const data = [
-  {id: 'a',name:'News', value: '../assets/images/newspaper.png'},
-  {id: 'b',name:'Entertainment', value: '../assets/images/ic_book_shows.png'},
-  {id: 'c',name:'Sports', value: '../assets/images/newspaper.png'},
-  {id: 'd',name:'Business', value: '../assets/images/books.png'},
-  {id: 'e',name:'Food/Drink', value: '../assets/images/newspaper.png'},
-  {id: 'f',name:'Art', value: '../assets/images/newspaper.png'},
-  {id: 'a',name:'Comedy', value: '../assets/images/newspaper.png'},
-  {id: 'b',name:'Health', value: '../assets/images/newspaper.png'},
-  {id: 'c',name:'Culture', value: '../assets/images/newspaper.png'},
-  {id: 'd',name:'Music', value: '../assets/images/newspaper.png'},
-  {id: 'e',name:'Tech', value: '../assets/images/newspaper.png'},
-  {id: 'f',name:'Travel', value: '../assets/images/newspaper.png'},
-  {id: 'f',name:'Fashion', value: '../assets/images/newspaper.png'},
+  {"id": 'a',"name":'News', "image": img1 },
+  {"id": 'b',"name":'Entertainment', "image": img2 },
+  {"id": 'c',"name":'Sports', "image": img3 },
+  {"id": 'd',"name":'Business', "image": img4 },
+  {"id": 'e',"name":'Food/Drink', "image": img5 },
+  {"id": 'f',"name":'Art', "image": img6 },
+  {"id": 'a',"name":'Comedy', "image": img7 },
+  {"id": 'b',"name":'Health', "image": img8 },
+  {"id": 'c',"name":'Culture', "image": img9 },
+  {"id": 'd',"name":'Music', "image": img10 },
+  {"id": 'e',"name":'Tech', "image": img11 },
+  {"id": 'f',"name":'Travel', "image": img12 },
+  {"id": 'f',"name":'Fashion', "image": img13 },
+  {"id": 'f',"name":'Edit', "image": img14 },
+
 
 ];
 
 class Movie extends React.Component {
+  onClick(data)
+  {
+    Alert.alert(data.name)
+
+  }
+
+
   render() {
+
       return (
+        <TouchableOpacity  onPress={() => this.onClick(this.props.movie)}>
+
         <View style={styles.movie} >
-          {<Image
-           source={require('../assets/images/newspaper.png')}
-            //source={{uri: this.props.movie.value}}  //{{uri: this.props.movie.posters.thumbnail}}
+          <Image
+          source={this.props.movie.image}
+           // source={{require(this.props.movie.value)}  //{{uri: this.props.movie.posters.thumbnail}}
             style={styles.thumbnail}
-          /> }
+          >
+          </Image> 
+          
           <View >
             <Text style={styles.title}>{this.props.movie.name}</Text>
           </View>
         </View>
+        </TouchableOpacity>
       );
   }
 }
@@ -79,6 +116,42 @@ export default class HelloWorldApp extends React.Component  {
       })
       .done();
   }
+  /**
+     * Called when search text was changed.
+            */
+
+           appClose() {
+            const { goBack } = this.props.navigation;
+            goBack('CollectionScreen');
+            BackHandler.exitApp()
+        
+          }
+
+  onChangeText(input) {
+
+}
+
+/**
+* Called when search was closed.
+*/
+onSearchClosed() {
+    const { goBack } = this.props.navigation;
+    goBack('CollectionScreen');
+}
+/**
+* Called when action to close search was requested.
+*/
+onSearchCloseRequested() {
+    const { goBack } = this.props.navigation;
+            goBack('CollectionScreen');
+
+}
+/**
+* Called when search was opened.
+*/
+onSearchPressed() {
+
+}
 
   render() {
     if (!this.state.loaded) {
@@ -86,13 +159,28 @@ export default class HelloWorldApp extends React.Component  {
     }
 
     return (
+     
       <ImageBackground source={require('../assets/images/Bck1.png')} style={{width:'100%',height:'100%'}}>
-      <GridView style={{paddingLeft:20,paddingRight:20,backgroundColor:Color.TRANSPARENT}}
+       <Toolbar
+      leftElement="close"
+      centerElement="Podsource"
+      onLeftElementPress={() => this.appClose()}
+      searchable={{
+        onSubmitEditing: () => this.onSubmitEditing(),
+        onChangeText: (input) => this.onChangeText(input),
+        autoFocus: true,
+        placeholder: 'Search',
+      }}
+    />
+      <Text style={styles.ScreenTitle}>Discover</Text>
+      <Image style={{width:'100%',height:10}} source={require('../assets/images/sep.png')}></Image>
+      <GridView 
         items={this.state.dataSource}
         itemsPerRow={MOVIES_PER_ROW}
         renderItem={this.renderItem}
         itemDimension={80}
         style={styles.listView}
+        
       />
     </ImageBackground>
 
@@ -134,38 +222,21 @@ var styles = StyleSheet.create({
     textAlign: 'center',
   },
   thumbnail: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
   },
   listView: {
-    paddingTop: 20,
+    paddingTop: 40,
     backgroundColor: Color.TRANSPARENT,
+   
   },
+  ScreenTitle:
+  {
+    paddingLeft: 20,
+    fontSize: 50,
+    color:Color.YELLOW,
+    paddingTop: 40,
+
+  }
 });
 
-//AppRegistry.registerComponent('GridViewExample', () => AwesomeProject);
-
-// //{
-  
-// onClick()
-// {
-// //this.props.navigation.navigate('ShowsTitle')
-// }
-// render() {
-// return (
-// <View>
-// <ImageBackground source={require('../assets/images/Bck1.png')} style={{width:'100%',height:'100%'}}>
-
-
-// </ImageBackground>
-// </View>
-// );
-// }
-// }
-// const styles = StyleSheet.create(
-// {
-// buttonStyle:{
-// paddingTop : 100
-// }
-// }
-// )
