@@ -87,28 +87,39 @@ export default class EpisodesShows extends React.Component {
                                         />
                                 </View> 
                             </View>
-                            
-                            <View style={styles.headerStyle}>
-                                <View style={{paddingLeft:15,paddingVertical:28,flexDirection:'row',justifyContent:'space-between',backgroundColor:Color.TRANSPARENT}}>
+                            <View style={{flexDirection:'column',justifyContent:'center'}}>
+                                    <View style={styles.headerStyle}>
+                                        <View style={{paddingLeft:15,paddingVertical:28,flexDirection:'row',justifyContent:'space-between',backgroundColor:Color.TRANSPARENT}}>
+                                            <Image 
+                                                source={require('../assets/images/ic_book_shows.png')} 
+                                                style={{height : 31 , width:31}} />
+                                            <Text style={{color:Color.YELLOW,fontWeight: 'bold',textAlign: 'center',fontSize: 26,height:30}}>Top Shows</Text>
+                                        </View>
+                                        <View style={{flexDirection:'column',justifyContent:'flex-start',backgroundColor:Color.TRANSPARENT}}>
+                                            <Image 
+                                                resizeMode={'stretch'}
+                                                source={require('../assets/images/ic_bookmark.png')} 
+                                                style = {{height : 32 , width:38}} />
+                                            <Text style={{color:Color.WHITE,paddingHorizontal:10,paddingTop:5,fontSize: 12}}> Top Shows </Text>
+                                        </View>
+                                    </View>
                                     <Image 
-                                        source={require('../assets/images/ic_book_shows.png')} 
-                                        style={{height : 31 , width:31}} />
-                                    <Text style={{color:Color.YELLOW,fontWeight: 'bold',textAlign: 'center',fontSize: 26,height:30}}>Top Shows</Text>
-                                </View>
-                                <View style={{flexDirection:'column',justifyContent:'flex-start',backgroundColor:Color.TRANSPARENT}}>
-                                    <Image 
-                                        resizeMode={'stretch'}
-                                        source={require('../assets/images/ic_bookmark.png')} 
-                                        style = {{height : 32 , width:38}} />
-                                    <Text style={{color:Color.WHITE,paddingHorizontal:10,paddingTop:5,fontSize: 12}}> Top Shows </Text>
-                                </View>
+                                            source={require('../assets/images/sep.png')} 
+                                            style={{height:8}} resizeMode = {'stretch'} 
+                                    /> 
                             </View>
 
                             <View style={styles.headerFeaturedStyle}>
-                                <View style={{backgroundColor:Color.COL_210_40_86,width:125,height:65,borderRadius:3,justifyContent:'flex-start'}}>
-                                </View>
-                                <View style={{backgroundColor:Color.COL_244_207_63,width:125,height:65,borderRadius:4,justifyContent:'flex-end'}}>
-                                </View>
+                                    <TouchableOpacity style={{backgroundColor:Color.COL_210_40_86,width:125,height:65,borderRadius:3,justifyContent:'flex-start'
+                                            ,shadowColor: '#000000',shadowOffset: {width: 0,height: 1},shadowRadius: 5,shadowOpacity: 0.60}} activeOpacity={0.5} disabled = {false}> 
+                                        <View>
+                                        </View>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={{backgroundColor:Color.COL_244_207_63,width:125,height:65,borderRadius:4,justifyContent:'flex-end'
+                                                ,shadowColor: '#000000',shadowOffset: {width: 0,height: 1},shadowRadius: 5,shadowOpacity: 0.60}} activeOpacity={0.5} disabled = {false}> 
+                                        <View>
+                                        </View>
+                                    </TouchableOpacity>                                
                             </View>
                             {
                                 this.renderEpisodsItem()
