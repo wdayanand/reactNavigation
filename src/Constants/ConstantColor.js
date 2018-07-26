@@ -21,5 +21,3 @@ module.exports = {
         COL_172_139_82 :'#AC8B52'   
   };
 
-
-

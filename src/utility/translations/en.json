@@ -6,5 +6,8 @@
     "btn_stumbe_pad":"Stumble-a-pad",
     "txt_Read_More":"Read More",
     "txt_Read_Less":"Read Less",
-    "txt_Show_Title":"Show Title"
+    "txt_Show_Title":"Show Title",
+    "seg_tit_episodes":"Episodes",
+    "seg_tit_shows":"Shows",
+    "seg_tit_mentions":"Mentions"    
 }

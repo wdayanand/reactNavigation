@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { SearchBar } from 'react-native-elements'
-import {View,Button,StyleSheet,Alert,TouchableOpacity,Image,Platform,SectionList,Text} from 'react-native'
+import {View,Button,StyleSheet,Alert,TouchableOpacity,Image,Platform,SectionList,Text,FlatList} from 'react-native'
 import SegmentControl from '../components/SegmentedControlTab'
 
-import ImageLoad from 'react-native-image-placeholder';
+import { Toolbar } from 'react-native-material-ui';
+import { I18n } from '../utility/translations/Locale';
+
+import AsyncImageAnimated from 'react-native-async-image-animated';
 
 
 const Color  = require('../Constants/ConstantColor');
@@ -14,19 +17,15 @@ export default class EpisodesShows extends React.Component {
         super(props)
         this.state = { 
             selectedTabIndex:0,
-            segTitleArray:['Episodes','Shows','Mentions'],
+            segTitleArray:[I18n.t('seg_tit_episodes'),I18n.t('seg_tit_shows'),I18n.t('seg_tit_mentions')],
             segBedgeArray:[0,0,0]
          }        
     }
-    static navigationOptions = ({ navigation }) => ({
+   /* static navigationOptions = ({ navigation }) => ({
         headerTintColor: 'white',        
         headerStyle: {
           backgroundColor: Color.COL_34_34_34
-        },
-        headerRight:<View style={{ flex: 1, paddingTop: 0, paddingLeft: 0, paddingRight: 0 ,backgroundColor : Color.COL_34_34_34}}>        
-                        <Button title = 'X'></Button>
-                    </View>
-                    ,        
+        },        
         headerLeft:<View style={{ flex: 1, paddingTop: 0, paddingLeft: 0, paddingRight: 0 ,backgroundColor : Color.COL_34_34_34}}>        
                         <TouchableOpacity style={styles.TouchButtonIconStyle} activeOpacity={0.5}> 
                             <Image 
@@ -34,11 +33,9 @@ export default class EpisodesShows extends React.Component {
                             style={styles.ImageIconStyle} 
                             />                            
                             </TouchableOpacity>
-                    </View>
-                    
-                    
-      })
-      onClick()
+                    </View>       
+      })*/
+        onClick()
         {
             Alert.alert('Done')
             this.setState({selectedTabIndex:1})
@@ -48,17 +45,18 @@ export default class EpisodesShows extends React.Component {
 
         }
 
-        A = [{"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
+        A = [{"id":1,"name":"Shilpi","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
+        {"id":1,"name":"Chipli","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
+        {"id":1,"name":"Shilpa","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"},{"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
+        {"id":1,"name":"Chitra","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
+        {"id":1,"name":"Kavita","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"},{"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
+        {"id":1,"name":"Samu","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
+        {"id":1,"name":"Champakali","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"},{"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
         {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
-        {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"},{"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
-        {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
-        {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"},{"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
-        {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
-        {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"},{"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
-        {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
-        {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"},{"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
-        {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
-        {"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"}] ;
+        {"id":1,"name":"Kavita","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"},{"id":1,"name":"Charil","epi_name":"Game of Thrones","show_name":"The Bear and the Maiden Fair","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/inga.dolinski5412f2b3e215a.png","time":"75 minutes"},
+        {"id":1,"name":"Arti","epi_name":"Game of Thrones","show_name":"Unbowed, Unbent, Unbroken","episodes":"10","createddate":"10/10/2018","like":"600","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
+        {"id":1,"name":"Urmila","epi_name":"Game of Thrones","show_name":"The Wolf and the Lion","episodes":"10","createddate":"10/10/2018","like":"100","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/MsMattheis52275fc720136.png","time":"75 minutes"}] ;
+
         B = [{"id":1,"name":"Charil","epi_name":"Game of Thrones1","show_name":"Cripples, Bastards, and Broken Things","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/pk_karthik556366573d429.png","time":"75 minutes"},
         {"id":1,"name":"Charil","epi_name":"Game of Thrones2","show_name":"What Is Dead May Never Die","episodes":"10","createddate":"10/10/2018","like":"60","last_message":"exploit proactive functionalities","picture":"https://www.cxservice360.com/wp-content/uploads/2017/09/Avatar.png","time":"75 minutes"},
         {"id":1,"name":"Charil","epi_name":"Game of Thrones3","show_name":"The Prince of Winterfell","episodes":"10","createddate":"10/10/2018","like":"1000","last_message":"exploit proactive functionalities","picture":"https://i.stack.imgur.com/gDpQu.jpg?s=328&g=1","time":"75 minutes"},{"id":1,"name":"Charil","epi_name":"Game of Thrones1","show_name":"Cripples, Bastards, and Broken Things","episodes":"10","createddate":"10/10/2018","like":"20","last_message":"exploit proactive functionalities","picture":"https://pickaface.net/gallery/avatar/pk_karthik556366573d429.png","time":"75 minutes"},
@@ -90,6 +88,29 @@ export default class EpisodesShows extends React.Component {
 
         return (           
                     <View style={{flex: 1,backgroundColor:Color.COL_10_14_25, marginTop : (Platform.OS) == 'ios' ? 0 : 0 }}>
+                            <View style={styles.SearchViewStyle}>
+                                <View style={{paddingTop: 0, paddingLeft: 0, paddingRight: 0 ,backgroundColor : Color.TRANSPARENT,width:50}}>        
+                                    <TouchableOpacity style={styles.TouchButtonIconStyle} activeOpacity={0.5} disabled = {false}> 
+                                        <Image 
+                                            source={require('../assets/images/ic_book_shows.png')} 
+                                            style={styles.ImageIconStyle} 
+                                        />                            
+                                    </TouchableOpacity>
+                                </View> 
+                                <View style={{backgroundColor : Color.TRANSPARENT,flex:1}}> 
+                                    <Toolbar
+                                            style={{ container: { elevation: 0, backgroundColor: 'transparent' } }}
+                                            searchable={{
+                                            onSubmitEditing: () => this.onSubmitEditing(),
+                                            onChangeText: (input) => this.onChangeText(input),
+                                            onSearchClosed: () => this.onSearchClosed(),
+                                            autoFocus: true,
+                                            placeholder: I18n.t('hint_search'),
+                                            }}
+                                            rightElement={<Text onPress={() => this.onRightElementPress()} style={styles.searchText}> {this.state.rightElementText}</Text>}
+                                        />
+                                </View> 
+                            </View>                            
                             <View style={{ backgroundColor : Color.COL_10_14_25,height:66,flexDirection:'column'}}>
                                 <View style={{paddingTop: 15, paddingLeft: 35, paddingRight: 35 }}>
                                     <SegmentControl
@@ -113,7 +134,7 @@ export default class EpisodesShows extends React.Component {
                                     this.state.selectedTabIndex < 1 ?
                                     this.renderEpisodsItem()                                    
                                     : this.renderShowsItem()
-                                : this.renderMentionItem()
+                                : this.renderMentionItemFlateList()
                             }
                             
                     </View>
@@ -129,11 +150,11 @@ export default class EpisodesShows extends React.Component {
                                             renderItem={ ({item}) => 
                                                 <View style={styles.itemBlock}>
                                                 <View>
-                                                    <ImageLoad
-                                                        style={styles.itemImage}
-                                                        loadingStyle = {{ size: 'large', color: 'blue' }}
+                                                    <AsyncImageAnimated
                                                         source={{ uri: item.picture}}
-                                                    />
+                                                        placeholderSource={require('../assets/images/ic_placeholder_avatar.png')}
+                                                        style={styles.itemImage}
+                                                     />
                                                 </View>
                                                 <View style={styles.itemMeta}>
                                                     <Text style={styles.itemName}>{item.name}</Text>
@@ -161,11 +182,11 @@ export default class EpisodesShows extends React.Component {
                     renderItem={ ({item}) => 
                     <View style={styles.itemBlock}>
                         <View>
-                            <ImageLoad
-                                style={styles.itemImage}
-                                loadingStyle = {{ size: 'large', color: 'blue' }}
-                                source={{ uri: item.picture}}
-                            /> 
+                        <AsyncImageAnimated
+                                                        source={{ uri: item.picture}}
+                                                        placeholderSource={require('../assets/images/ic_placeholder_avatar.png')}
+                                                        style={styles.itemImage}
+                                                     />
                             <Text style={styles.itemTime}>{item.time}</Text>                                        
                         </View>
                         <View style={styles.itemMeta}>
@@ -183,7 +204,43 @@ export default class EpisodesShows extends React.Component {
         ) 
       }
 
-      renderMentionItem() {            
+      renderMentionItemFlateList() {            
+        return (
+            <FlatList 
+                    keyExtractor={this._keyExtractor}
+                    data={this.A}
+                    renderItem={ ({item}) => 
+                    <View style={styles.mentionItemBlock}>
+                    <View style={{justifyContent:'flex-end'}}>
+                        <AsyncImageAnimated
+                                source={{ uri: item.picture}}
+                                placeholderSource={require('../assets/images/ic_placeholder_avatar.png')}
+                                style={styles.itemImage}
+                            />                   
+                    </View>
+                    <View style={styles.mentionShowEpisodBlock}>
+                        <View style={{paddingLeft:10}}>
+                            <Text style={styles.mentionTitleName}>{item.epi_name}</Text>
+                            <Text style={styles.mentionDesText}>{item.show_name}</Text>
+                        </View>
+                        <View style={styles.mentionPlayBlock}> 
+                            <View style={{flex:1,backgroundColor:Color.TRANSPARENT}}>
+                                <TouchableOpacity onPress= {()=>this.onPressClickMe()} style={{backgroundColor:Color.TRANSPARENT}} >
+                                    <Image resizeMode="stretch" style={{height:50,width:'100%'}} source={require('../assets/images/ic_play_mentions.png')} />
+                                </TouchableOpacity>
+                            </View> 
+                            <View style={styles.mentionbookMark}> 
+                                <TouchableOpacity style={{height:48,width:20}} onPress= {()=>this.onPressClickMe()}>
+                                    <Image style={{height:48,width:20}} source={require('../assets/images/ic_bookmark.png')} />
+                                </TouchableOpacity>                            
+                            </View>                                               
+                        </View>
+                    </View>                
+                    </View>}
+            />                                          
+        )        
+      }
+      /*renderMentionItemSectionList() {            
         return (
             <SectionList 
             sections={this.sections}
@@ -191,11 +248,11 @@ export default class EpisodesShows extends React.Component {
             renderItem={ ({item}) => 
                 <View style={styles.mentionItemBlock}>
                 <View style={{justifyContent:'flex-end'}}>
-                    <ImageLoad
-                        style={styles.mentionItemImage}
-                        loadingStyle = {{ size: 'large', color: 'blue' }}
-                        source={{ uri: item.picture}}
-                    />                    
+                    <AsyncImageAnimated
+                            source={{ uri: item.picture}}
+                            placeholderSource={require('../assets/images/ic_placeholder_avatar.png')}
+                            style={styles.itemImage}
+                        />                   
                 </View>
                 <View style={styles.mentionShowEpisodBlock}>
                     <View style={{paddingLeft:10}}>
@@ -219,7 +276,7 @@ export default class EpisodesShows extends React.Component {
             keyExtractor={ (item, index) => index }
         />                                           
         )        
-      }
+      }*/
       onPressClickMe()
       {
           this.state.selectedTabIndex == 0 ?
@@ -231,12 +288,48 @@ export default class EpisodesShows extends React.Component {
             this.state.selectedTabIndex == 2 ?
             Alert.alert("Mentions") : false
       }
+            /**
+         * Called when search was closed.
+         */
+        onSearchClosed() {
+            this.setState({
+            filterData: this.state.data,
+            noData: false,
+            })
+        }
+        /**
+         * Called when action to close search was requested.
+         */
+        onSearchCloseRequested() {
+
+        }
+        /**
+         * Called when search was opened.
+         */
+        onSearchPressed() {
+
+        }
+        /**
+         * Called when user press submit button on hw keyboard
+         */
+        onSubmitEditing() {
+            Alert.alert('text=')
+        }
 }
 const Separator = () => (
     <View style={[styles.separatorContainer]} />
   );
 const styles = StyleSheet.create(
     {
+        SearchViewStyle:{   
+            flexDirection:'row',                     
+            height:64,
+            marginTop:0,
+            paddingTop:10,
+            paddingLeft:0,
+            backgroundColor:Color.COL_34_34_34,
+            justifyContent:'space-between'
+          },
         tabsContainerStyle:{
             backgroundColor : Color.CLEAR,
         },
@@ -256,8 +349,9 @@ const styles = StyleSheet.create(
         TouchButtonIconStyle:{
             width:35,
             height:40,
-            marginTop:-5,
-            paddingLeft:8
+            marginTop:0,
+            paddingLeft:8,
+            justifyContent:'center'
           },
           SectionHeaderStyle:{ 
             backgroundColor : Color.COL_16_20_30,            

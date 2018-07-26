@@ -35,7 +35,7 @@ const libraryepisodesStack = createStackNavigator({
   EpisodesShows: {
     screen: EpisodesShows, navigationOptions: ({ navigation, goBack }) =>
       ({
-        
+        header: null
       }),
   }
 });
