@@ -200,6 +200,25 @@ onSearchPressed() {
   renderItem(item) {
       return <Movie movie={item} />
   }
+  topSearchBar() {
+    return (
+        <View style={{padding:10,justifyContent:'center',flex:1,}}>
+            <View style={styles.SearchBarStyle}>
+                <View style={{padding:2,justifyContent:'center'}}>
+                    <SearchBar style={{paddingTop:0}}
+                                noIcon
+                                inputStyle={{backgroundColor:Color.TRANSPARENT,alignSelf:'center'}}
+                                containerStyle={{backgroundColor:Color.TRANSPARENT,color:Color.TRANSPARENT,borderBottomColor:Color.TRANSPARENT,borderTopColor:Color.TRANSPARENT}}
+                                placeholder='What are you doing' />
+                 </View>
+                <View style={{position:'absolute',padding:10,right:0,backgroundColor:Color.TRANSPARENT}}>
+                    <Image resizeMode={'stretch'} style={{height:22,width:20,justifyContent:'center'}} source={require('../assets/images/ic_search.png')} />
+                </View>
+           </View>  
+        </View>                                            
+    ) 
+  }
+
 }
 
 var styles = StyleSheet.create({

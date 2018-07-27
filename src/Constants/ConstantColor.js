@@ -20,6 +20,7 @@ module.exports = {
         COL_pastel_blue:'#C1F0F6',
         COL_244_207_63 : 'rgba(244,207,63,1)',
         COL_210_40_86 : 'rgba(210,40,86,1)',
+        COL_25_26_27 : 'rgba(25,26,27,1)',
         COL_172_139_82 :'#AC8B52'           
   };
 

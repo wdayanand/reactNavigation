@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { SearchBar } from 'react-native-elements'
 import {View,Button,StyleSheet,Alert,TouchableOpacity,Image,Platform,SectionList,Text,FlatList,ImageBackground} from 'react-native'
+import {Icon,TextInput} from 'react-native'
 import SegmentControl from '../components/SegmentedControlTab'
 
 import { Toolbar } from 'react-native-material-ui';
@@ -96,22 +97,12 @@ export default class EpisodesShows extends React.Component {
                                         />                            
                                     </TouchableOpacity>
                                 </View> 
-                                <View style={{backgroundColor : Color.TRANSPARENT,flex:1}}> 
-                                    <Toolbar
-                                            style={{ container: { elevation: 0, backgroundColor: Color.TRANSPARENT } }}
-                                            searchable={{
-                                            onSubmitEditing: () => this.onSubmitEditing(),
-                                            onChangeText: (input) => this.onChangeText(input),
-                                            onSearchClosed: () => this.onSearchClosed(),
-                                            autoFocus: true,
-                                            placeholder: I18n.t('hint_search_pod'),
-                                            }}
-                                            rightElement={<Text onPress={() => this.onRightElementPress()} style={styles.searchText}> {this.state.rightElementText}</Text>}
-                                        />
-                                </View> 
+                                {
+                                    this.topSearchBar()
+                                }                               
                             </View>                            
-                            <View style={{ backgroundColor : Color.TRANSPARENT,height:66,flexDirection:'column'}}>
-                                <View style={{paddingTop: 15, paddingLeft: 35, paddingRight: 35 }}>
+                            <View style={{ backgroundColor : Color.TRANSPARENT,height:75,flexDirection:'column'}}>
+                                <View style={{paddingTop: 15, paddingLeft: 35, paddingRight: 35,justifyContent:'flex-start' ,backgroundColor:Color.TRANSPARENT}}>
                                     <SegmentControl
                                         values={this.state.segTitleArray}
                                         badges={this.state.segBedgeArray}
@@ -126,7 +117,13 @@ export default class EpisodesShows extends React.Component {
                                         activeTabTextStyle = {{color:Color.YELLOW}}
                                                         />
                                 </View>
-                                <View style={{backgroundColor:Color.WHITE , height:1,marginTop:10}}></View>
+                                <View style={{width:'100%',height:10,paddingTop:12}}>
+                                <Image 
+                                            source={require('../assets/images/sep.png')} 
+                                             resizeMode = {'stretch'} 
+                                             style={{width:'100%'}}
+                                />
+                                </View>
                             </View>
                             {
                                 this.state.selectedTabIndex <= 1?
@@ -139,12 +136,31 @@ export default class EpisodesShows extends React.Component {
                     </View>                   
         );
     }
+    topSearchBar() {
+        return (
+            <View style={{padding:10,justifyContent:'center',flex:1,}}>
+                <View style={styles.SearchBarStyle}>
+                    <View style={{padding:2,justifyContent:'center'}}>
+                        <SearchBar style={{paddingTop:0}}
+                                    noIcon
+                                    inputStyle={{backgroundColor:Color.TRANSPARENT,alignSelf:'center'}}
+                                    containerStyle={{backgroundColor:Color.TRANSPARENT,color:Color.TRANSPARENT,borderBottomColor:Color.TRANSPARENT,borderTopColor:Color.TRANSPARENT}}
+                                    placeholder='What are you doing' />
+                     </View>
+                    <View style={{position:'absolute',padding:10,right:0,backgroundColor:Color.TRANSPARENT}}>
+                        <Image resizeMode={'stretch'} style={{height:22,width:20,justifyContent:'center'}} source={require('../assets/images/ic_search.png')} />
+                    </View>
+               </View>  
+            </View>                                            
+        ) 
+      }
 
     renderEpisodsItem() {
         return (
             <SectionList 
                                             sections={this.sections}
-                                            ItemSeparatorComponent={Separator}                      
+                                            ItemSeparatorComponent={Separator}   
+                                            bounces = {false}                   
                                             renderSectionHeader={ ({section}) => <Text style={styles.SectionHeaderStyle}> { section.title } </Text> }
                                             renderItem={ ({item}) => 
                                                 <View style={styles.itemBlock}>
@@ -177,6 +193,7 @@ export default class EpisodesShows extends React.Component {
             <SectionList
                 sections={this.sections}
                 ItemSeparatorComponent={Separator}
+                bounces = {false}
                 renderSectionHeader={({ section }) => <Text style={styles.SectionHeaderStyle}> {section.title} </Text>}
                 renderItem={({ item }) =>
                     <View style={styles.itemBlock}>
@@ -208,6 +225,7 @@ export default class EpisodesShows extends React.Component {
             <FlatList 
                     keyExtractor={this._keyExtractor}
                     data={this.A}
+                    bounces = {false}
                     renderItem={ ({item}) => 
                     <View style={styles.mentionItemBlock}>
                     <View style={{justifyContent:'flex-end'}}>
@@ -294,6 +312,13 @@ const styles = StyleSheet.create(
             backgroundColor:Color.COL_34_34_34,
             justifyContent:'space-between'
           },
+        SearchBarStyle:{          
+            flexDirection:'row',               
+            justifyContent:'space-between',                
+            borderRadius:10,
+            backgroundColor:Color.COL_25_26_27,   
+            height:40,         
+          },
         tabsContainerStyle:{
             backgroundColor : Color.CLEAR,
         },
@@ -323,8 +348,8 @@ const styles = StyleSheet.create(
             paddingLeft:8,
             justifyContent:'center'
           },
-          SectionHeaderStyle:{ 
-            backgroundColor : Color.COL_16_20_30,            
+          SectionHeaderStyle:{               
+            backgroundColor : Color.COL_28_75_144,         
             padding: 10,
             color: '#fff',
             textAlign: 'right', // <-- the magic
@@ -449,6 +474,18 @@ const styles = StyleSheet.create(
                 justifyContent: 'center',
                 paddingLeft: 6,
                 width: 30,
+            },
+            input: {
+                flex: 1,
+                paddingTop: 10,
+                paddingRight: 10,
+                paddingBottom: 10,
+                paddingLeft: 10,
+                backgroundColor: Color.TRANSPARENT,
+                color: Color.WHITE,
+            },
+            searchIcon: {
+                padding: 10,
             },
     }
 )

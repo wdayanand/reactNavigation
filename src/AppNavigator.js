@@ -46,7 +46,7 @@ const libraryepisodesStack = createStackNavigator({
       ({
         header: null
       }),
-  }
+  } 
 });
 
 const playerScreenStack = createStackNavigator({
@@ -133,7 +133,12 @@ const DiscoveryList = createStackNavigator({
         header: null
       })
   },
-
+  NewsVC: {
+    screen: NewsVC, navigationOptions: ({ navigation, goBack }) =>
+      ({
+        header: null
+      }),
+  }
 
 
 });
